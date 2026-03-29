@@ -317,7 +317,7 @@
         const win = result < 6;
         let grid = "";
         for(let i=1; i<=5; i++) grid += (i < result) ? "🧱" : (win ? "⬜" : "❌");
-        const text = `Theatre Bricks #${dailyNum}\n${grid}\nStreak: ${streak}\nhttps://your-game-link.com`;
+        const text = `Theatre Bricks #${dailyNum}\n${grid}\nStreak: ${streak}\nhttps://brick-game.github.io/theatrebricks/`;
         navigator.clipboard.writeText(text).then(() => alert("Copied to clipboard!"));
     }
 

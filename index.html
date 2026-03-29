@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theatre Bricks: Daily West End Edition</title>
+    <style>
+        :root { 
+            --bg: #0f172a; 
+            --olivier-gold: #fbbf24; 
+            --brick: #1e293b; 
+            --correct: #10b981; 
+            --wrong: #f43f5e; 
+            --text: #f8fafc;
+            --accent: #3b82f6;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--bg); color: var(--text); 
+            display: flex; flex-direction: column; align-items: center; 
+            min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box;
+        }
+
+        .header { text-align: center; margin-bottom: 10px; border-bottom: 4px solid var(--olivier-gold); width: 100%; max-width: 450px; }
+        h1 { margin: 10px 0; letter-spacing: 2px; color: var(--olivier-gold); font-size: 1.8rem; }
+        #dailyVol { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 5px; }
+        
+        .hint-container { text-align: center; margin: 10px 0 20px 0; }
+        .main-callout { font-size: 2.2rem; font-weight: 900; margin: 0; line-height: 1.2; color: var(--olivier-gold); text-transform: uppercase; }
+        .word-hint { font-size: 1.2rem; font-weight: 600; margin-top: 5px; color: var(--text); letter-spacing: 1px; }
+
+        .bricks-container { 
+            display: flex; flex-direction: column-reverse; 
+            gap: 8px; width: 100%; max-width: 450px; margin-bottom: 20px; 
+        }
+
+        .brick { 
+            background: var(--brick); border-left: 5px solid #334155; 
+            padding: 12px; border-radius: 4px; opacity: 0.1; filter: blur(2px);
+            transition: all 0.4s ease;
+        }
+
+        .brick.revealed { opacity: 1; filter: blur(0); border-left-color: var(--olivier-gold); }
+        .brick.title-reveal.revealed { border-left-color: var(--correct); background: #064e3b; animation: successFlash 0.5s ease; }
+        
+        @keyframes successFlash {
+            0% { background: var(--olivier-gold); }
+            100% { background: #064e3b; }
+        }
+
+        .brick-label { font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; font-weight: bold; }
+        .brick-value { font-size: 1rem; font-weight: 600; margin-top: 2px; }
+        
+        .underscore-font { letter-spacing: 3px; font-family: 'Courier New', monospace; font-size: 1.1rem; color: var(--olivier-gold); }
+
+        .controls { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 10px; }
+        .input-group { display: flex; gap: 8px; }
+        input { 
+            flex: 1; padding: 15px; border-radius: 5px; border: 2px solid #334155; 
+            background: #1e293b; color: white; font-size: 1rem; outline: none; 
+        }
+        input:focus { border-color: var(--olivier-gold); }
+        input:disabled { opacity: 0.5; }
+        
+        .btn-main { padding: 0 20px; border-radius: 5px; border: none; background: var(--olivier-gold); color: black; font-weight: 800; cursor: pointer; text-transform: uppercase; }
+        .btn-share { padding: 15px; background: var(--accent); color: white; border: none; border-radius: 5px; font-weight: 800; cursor: pointer; display: none; text-transform: uppercase; }
+
+        .secondary-controls { display: flex; justify-content: space-between; gap: 10px; }
+        .btn-sub { flex: 1; background: transparent; color: #64748b; font-size: 0.7rem; padding: 12px; border: 1px solid #334155; border-radius: 5px; cursor: pointer; text-transform: uppercase; }
+
+        #message { margin-top: 15px; font-weight: bold; text-align: center; min-height: 3em; line-height: 1.4; }
+        #timer { color: var(--olivier-gold); font-size: 1.2rem; }
+        .stats-container { margin-top: 10px; display: flex; gap: 20px; color: #64748b; font-size: 0.8rem; }
+        .high-score { color: var(--olivier-gold); font-weight: bold; }
+        .copyright { position: fixed; bottom: 10px; right: 10px; font-size: 0.8rem; color: #FFFFFF; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>THEATRE BRICKS</h1>
+    <div id="dailyVol">Show #--</div>
+</div>
+
+<div class="hint-container">
+    <div class="main-callout">Guess the Musical</div>
+    <div class="word-hint" id="wordHint">? Words</div>
+</div>
+
+<div class="bricks-container" id="bricksContainer"></div>
+
+<div class="controls">
+    <div class="input-group" id="mainInputGroup">
+        <input type="text" id="guessInput" placeholder="Enter title..." autocomplete="off">
+        <button class="btn-main" id="guessBtn" onclick="handleGuess()">GUESS</button>
+    </div>
+    <div class="secondary-controls" id="secondaryGroup">
+        <button class="btn-sub" onclick="skipClue()">Skip Clue</button>
+        <button class="btn-sub" onclick="surrender()" style="color: #f43f5e;">Give Up</button>
+    </div>
+    <button id="shareBtn" class="btn-share" onclick="copyShare()">Share Result 📋</button>
+</div>
+
+<div id="message"></div>
+<div class="stats-container">
+    <div>Streak: <span id="streak">0</span></div>
+    <div>Best: <span id="highScore" class="high-score">0</span></div>
+</div>
+
+<div class="copyright">© Oliver Prudence</div>
+
+<script>
+    const theatreData = [
+        { "title": "Oklahoma!", "year": "1947", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Howard Keel" }, { "role": "Music & Lyrics", "name": "Rodgers & Hammerstein" } ] },
+        { "title": "Annie Get Your Gun", "year": "1947", "bricks": [ { "role": "Opening Theatre", "name": "London Coliseum" }, { "role": "Original Star", "name": "Dolores Gray" }, { "role": "Music & Lyrics", "name": "Irving Berlin" } ] },
+        { "title": "Guys and Dolls", "year": "1953", "bricks": [ { "role": "Opening Theatre", "name": "London Coliseum" }, { "role": "Original Star", "name": "Jerry Wayne" }, { "role": "Music & Lyrics", "name": "Frank Loesser" } ] },
+        { "title": "The Boy Friend", "year": "1953", "bricks": [ { "role": "Opening Theatre", "name": "Players' Theatre" }, { "role": "Original Star", "name": "Anne Rogers" }, { "role": "Music & Lyrics", "name": "Sandy Wilson" } ] },
+        { "title": "Salad Days", "year": "1954", "bricks": [ { "role": "Opening Theatre", "name": "Vaudeville Theatre" }, { "role": "Original Star", "name": "John Warner" }, { "role": "Music & Lyrics", "name": "Slade & Reynolds" } ] },
+        { "title": "My Fair Lady", "year": "1958", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Julie Andrews" }, { "role": "Music & Lyrics", "name": "Lerner & Loewe" } ] },
+        { "title": "West Side Story", "year": "1958", "bricks": [ { "role": "Opening Theatre", "name": "Her Majesty's" }, { "role": "Original Star", "name": "George Chakiris" }, { "role": "Music & Lyrics", "name": "Bernstein & Sondheim" } ] },
+        { "title": "Oliver!", "year": "1960", "bricks": [ { "role": "Opening Theatre", "name": "New Theatre" }, { "role": "Original Star", "name": "Ron Moody" }, { "role": "Music & Lyrics", "name": "Lionel Bart" } ] },
+        { "title": "The Sound of Music", "year": "1961", "bricks": [ { "role": "Opening Theatre", "name": "Palace Theatre" }, { "role": "Original Star", "name": "Jean Bayless" }, { "role": "Music & Lyrics", "name": "Rodgers & Hammerstein" } ] },
+        { "title": "Half a Sixpence", "year": "1963", "bricks": [ { "role": "Opening Theatre", "name": "Cambridge Theatre" }, { "role": "Original Star", "name": "Tommy Steele" }, { "role": "Music & Lyrics", "name": "David Heneker" } ] },
+        { "title": "Funny Girl", "year": "1966", "bricks": [ { "role": "Opening Theatre", "name": "Prince of Wales" }, { "role": "Original Star", "name": "Barbra Streisand" }, { "role": "Music & Lyrics", "name": "Jule Styne & Bob Merrill" } ] },
+        { "title": "Fiddler on the Roof", "year": "1967", "bricks": [ { "role": "Opening Theatre", "name": "Her Majesty's" }, { "role": "Original Star", "name": "Topol" }, { "role": "Music & Lyrics", "name": "Bock & Harnick" } ] },
+        { "title": "Cabaret", "year": "1968", "bricks": [ { "role": "Opening Theatre", "name": "Palace Theatre" }, { "role": "Original Star", "name": "Judi Dench" }, { "role": "Music & Lyrics", "name": "Kander & Ebb" } ] },
+        { "title": "Hair", "year": "1968", "bricks": [ { "role": "Opening Theatre", "name": "Shaftesbury Theatre" }, { "role": "Original Star", "name": "Paul Nicholas" }, { "role": "Music & Lyrics", "name": "MacDermot, Ragni & Rado" } ] },
+        { "title": "Jesus Christ Superstar", "year": "1972", "bricks": [ { "role": "Opening Theatre", "name": "Palace Theatre" }, { "role": "Original Star", "name": "Paul Nicholas" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Rice" } ] },
+        { "title": "The Rocky Horror Show", "year": "1973", "bricks": [ { "role": "Opening Theatre", "name": "Royal Court" }, { "role": "Original Star", "name": "Tim Curry" }, { "role": "Music & Lyrics", "name": "Richard O'Brien" } ] },
+        { "title": "Billy", "year": "1974", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Michael Crawford" }, { "role": "Music & Lyrics", "name": "Clement & La Frenais" } ] },
+        { "title": "A Chorus Line", "year": "1976", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Jane Summerhays" }, { "role": "Music & Lyrics", "name": "Hamlisch & Kleban" } ] },
+        { "title": "Evita", "year": "1978", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Elaine Paige" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Rice" } ] },
+        { "title": "Sweeney Todd", "year": "1980", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Denis Quilley" }, { "role": "Music & Lyrics", "name": "Stephen Sondheim" } ] },
+        { "title": "Cats", "year": "1981", "bricks": [ { "role": "Opening Theatre", "name": "New London" }, { "role": "Original Star", "name": "Elaine Paige" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Eliot" } ] },
+        { "title": "Blood Brothers", "year": "1983", "bricks": [ { "role": "Opening Theatre", "name": "Lyric Theatre" }, { "role": "Original Star", "name": "Barbara Dickson" }, { "role": "Music & Lyrics", "name": "Willy Russell" } ] },
+        { "title": "Starlight Express", "year": "1984", "bricks": [ { "role": "Opening Theatre", "name": "Apollo Victoria" }, { "role": "Original Star", "name": "Stephanie Lawrence" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Stilgoe" } ] },
+        { "title": "Les Misérables", "year": "1985", "bricks": [ { "role": "Opening Theatre", "name": "Barbican" }, { "role": "Original Star", "name": "Colm Wilkinson" }, { "role": "Music & Lyrics", "name": "Schönberg & Kretzmer" } ] },
+        { "title": "The Phantom of the Opera", "year": "1986", "bricks": [ { "role": "Opening Theatre", "name": "Her Majesty's" }, { "role": "Original Star", "name": "Michael Crawford" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Hart" } ] },
+        { "title": "Chess", "year": "1986", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Murray Head" }, { "role": "Music & Lyrics", "name": "Ulvaeus, Andersson & Rice" } ] },
+        { "title": "Miss Saigon", "year": "1989", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Lea Salonga" }, { "role": "Music & Lyrics", "name": "Schönberg & Boublil" } ] },
+        { "title": "Five Guys Named Moe", "year": "1990", "bricks": [ { "role": "Opening Theatre", "name": "Lyric Theatre" }, { "role": "Original Star", "name": "Clarke Peters" }, { "role": "Music & Lyrics", "name": "Louis Jordan" } ] },
+        { "title": "Sunset Boulevard", "year": "1993", "bricks": [ { "role": "Opening Theatre", "name": "Adelphi Theatre" }, { "role": "Original Star", "name": "Patti LuPone" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Black" } ] },
+        { "title": "Mamma Mia!", "year": "1999", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Siobhan McCarthy" }, { "role": "Music & Lyrics", "name": "ABBA" } ] },
+        { "title": "The Lion King", "year": "1999", "bricks": [ { "role": "Opening Theatre", "name": "Lyceum Theatre" }, { "role": "Original Star", "name": "Josette Bushell-Mingo" }, { "role": "Music & Lyrics", "name": "Elton John & Tim Rice" } ] },
+        { "title": "The Witches of Eastwick", "year": "2000", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Ian McShane" }, { "role": "Music & Lyrics", "name": "Dana P. Rowe" } ] },
+        { "title": "We Will Rock You", "year": "2002", "bricks": [ { "role": "Opening Theatre", "name": "Dominion Theatre" }, { "role": "Original Star", "name": "Hannah Jane Fox" }, { "role": "Music & Lyrics", "name": "Queen" } ] },
+        { "title": "Chitty Chitty Bang Bang", "year": "2002", "bricks": [ { "role": "Opening Theatre", "name": "London Palladium" }, { "role": "Original Star", "name": "Michael Ball" }, { "role": "Music & Lyrics", "name": "Sherman Brothers" } ] },
+        { "title": "Our House", "year": "2002", "bricks": [ { "role": "Opening Theatre", "name": "Cambridge Theatre" }, { "role": "Original Star", "name": "Michael Jibson" }, { "role": "Music & Lyrics", "name": "Madness" } ] },
+        { "title": "Mary Poppins", "year": "2004", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Laura Michelle Kelly" }, { "role": "Music & Lyrics", "name": "Sherman / Stiles & Drewe" } ] },
+        { "title": "Billy Elliot", "year": "2005", "bricks": [ { "role": "Opening Theatre", "name": "Victoria Palace" }, { "role": "Original Star", "name": "Liam Mower" }, { "role": "Music & Lyrics", "name": "Elton John & Lee Hall" } ] },
+        { "title": "Wicked", "year": "2006", "bricks": [ { "role": "Opening Theatre", "name": "Apollo Victoria" }, { "role": "Original Star", "name": "Idina Menzel" }, { "role": "Music & Lyrics", "name": "Stephen Schwartz" } ] },
+        { "title": "Jersey Boys", "year": "2008", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Ryan Molloy" }, { "role": "Music & Lyrics", "name": "Gaudio & Crewe" } ] },
+        { "title": "Legally Blonde", "year": "2010", "bricks": [ { "role": "Opening Theatre", "name": "Savoy Theatre" }, { "role": "Original Star", "name": "Sheridan Smith" }, { "role": "Music & Lyrics", "name": "O'Keefe & Benjamin" } ] },
+        { "title": "Matilda the Musical", "year": "2011", "bricks": [ { "role": "Opening Theatre", "name": "Cambridge Theatre" }, { "role": "Original Star", "name": "Bertie Carvel" }, { "role": "Music & Lyrics", "name": "Tim Minchin" } ] },
+        { "title": "The Book of Mormon", "year": "2013", "bricks": [ { "role": "Opening Theatre", "name": "Prince of Wales" }, { "role": "Original Star", "name": "Gavin Creel" }, { "role": "Music & Lyrics", "name": "Parker, Stone & Lopez" } ] },
+        { "title": "Charlie and the Chocolate Factory", "year": "2013", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Douglas Hodge" }, { "role": "Music & Lyrics", "name": "Shaiman & Wittman" } ] },
+        { "title": "Memphis", "year": "2014", "bricks": [ { "role": "Opening Theatre", "name": "Shaftesbury Theatre" }, { "role": "Original Star", "name": "Beverley Knight" }, { "role": "Music & Lyrics", "name": "Bryan & DiPietro" } ] },
+        { "title": "Sunny Afternoon", "year": "2014", "bricks": [ { "role": "Opening Theatre", "name": "Harold Pinter" }, { "role": "Original Star", "name": "John Dagleish" }, { "role": "Music & Lyrics", "name": "Ray Davies" } ] },
+        { "title": "Kinky Boots", "year": "2015", "bricks": [ { "role": "Opening Theatre", "name": "Adelphi Theatre" }, { "role": "Original Star", "name": "Matt Henry" }, { "role": "Music & Lyrics", "name": "Cyndi Lauper" } ] },
+        { "title": "Groundhog Day", "year": "2016", "bricks": [ { "role": "Opening Theatre", "name": "Old Vic" }, { "role": "Original Star", "name": "Andy Karl" }, { "role": "Music & Lyrics", "name": "Tim Minchin" } ] },
+        { "title": "Dreamgirls", "year": "2016", "bricks": [ { "role": "Opening Theatre", "name": "Savoy Theatre" }, { "role": "Original Star", "name": "Amber Riley" }, { "role": "Music & Lyrics", "name": "Krieger & Eyen" } ] },
+        { "title": "Hamilton", "year": "2017", "bricks": [ { "role": "Opening Theatre", "name": "Victoria Palace" }, { "role": "Original Star", "name": "Jamael Westman" }, { "role": "Music & Lyrics", "name": "Lin-Manuel Miranda" } ] },
+        { "title": "Everybodys Talking About Jamie", "year": "2017", "bricks": [ { "role": "Opening Theatre", "name": "Apollo Theatre" }, { "role": "Original Star", "name": "John McCrea" }, { "role": "Music & Lyrics", "name": "Gillespie & Sells" } ] },
+        { "title": "Come From Away", "year": "2019", "bricks": [ { "role": "Opening Theatre", "name": "Phoenix Theatre" }, { "role": "Original Star", "name": "Rachel Tucker" }, { "role": "Music & Lyrics", "name": "Sankoff & Hein" } ] },
+        { "title": "Six", "year": "2019", "bricks": [ { "role": "Opening Theatre", "name": "Arts Theatre" }, { "role": "Original Star", "name": "The Original Queens" }, { "role": "Music & Lyrics", "name": "Marlow & Moss" } ] },
+        { "title": "Dear Evan Hansen", "year": "2019", "bricks": [ { "role": "Opening Theatre", "name": "Noël Coward" }, { "role": "Original Star", "name": "Sam Tutty" }, { "role": "Music & Lyrics", "name": "Pasek & Paul" } ] },
+        { "title": "Moulin Rouge!", "year": "2021", "bricks": [ { "role": "Opening Theatre", "name": "Piccadilly Theatre" }, { "role": "Original Star", "name": "Liisi LaFontaine" }, { "role": "Music & Lyrics", "name": "Various Artists" } ] },
+        { "title": "Back to the Future", "year": "2021", "bricks": [ { "role": "Opening Theatre", "name": "Adelphi Theatre" }, { "role": "Original Star", "name": "Olly Dobson" }, { "role": "Music & Lyrics", "name": "Silvestri & Ballard" } ] },
+        { "title": "Operation Mincemeat", "year": "2023", "bricks": [ { "role": "Opening Theatre", "name": "Fortune Theatre" }, { "role": "Original Star", "name": "SpitLip" }, { "role": "Music & Lyrics", "name": "SpitLip" } ] },
+        { "title": "The Little Big Things", "year": "2023", "bricks": [ { "role": "Opening Theatre", "name": "@sohoplace" }, { "role": "Original Star", "name": "Ed Larkin" }, { "role": "Music & Lyrics", "name": "Butcher & Ling" } ] },
+        { "title": "Hadestown", "year": "2024", "bricks": [ { "role": "Opening Theatre", "name": "Lyric Theatre" }, { "role": "Original Star", "name": "Dónal Finn" }, { "role": "Music & Lyrics", "name": "Anaïs Mitchell" } ] },
+        { "title": "Standing at the Sky's Edge", "year": "2024", "bricks": [ { "role": "Opening Theatre", "name": "Gillian Lynne" }, { "role": "Original Star", "name": "Maimuna Memon" }, { "role": "Music & Lyrics", "name": "Richard Hawley" } ] },
+        { "title": "Mean Girls", "year": "2024", "bricks": [ { "role": "Opening Theatre", "name": "Savoy Theatre" }, { "role": "Original Star", "name": "Charlie Burn" }, { "role": "Music & Lyrics", "name": "Richmond & Benjamin" } ] }
+    ];
+
+    let currentShow = null;
+    let revealedCount = 1;
+    let streak = parseInt(localStorage.getItem('theatreBricksStreakWE')) || 0;
+    let bestStreak = parseInt(localStorage.getItem('theatreBricksBestWE_Final')) || 0;
+    let activeBricks = [];
+    let todayStr = new Date().toDateString();
+
+    function getDailyIndex() {
+        const start = new Date("January 1, 2026");
+        const now = new Date();
+        const diff = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+        return { index: diff % theatreData.length, dayNum: diff + 1 };
+    }
+
+    function generateTitleClue(title) {
+        return title.split(' ').map(word => {
+            return word.split('').map((char, index) => {
+                if (index === 0) return char;
+                if (/[a-zA-Z]/.test(char)) return '_';
+                return char;
+            }).join('');
+        }).join('&nbsp;&nbsp;');
+    }
+
+    function init() {
+        const daily = getDailyIndex();
+        currentShow = theatreData[daily.index];
+        dailyNum = daily.dayNum;
+        document.getElementById('dailyVol').innerText = `Show #${dailyNum}`;
+        
+        activeBricks = [
+            { "role": "West End Premiere", "name": currentShow.year },
+            ...currentShow.bricks,
+            { "role": "Title Clue", "name": generateTitleClue(currentShow.title), "isUnderscore": true },
+            { "role": "The Musical", "name": currentShow.title, "isFinal": true }
+        ];
+
+        document.getElementById('highScore').innerText = bestStreak;
+        document.getElementById('streak').innerText = streak;
+
+        // Check if already played today
+        if (localStorage.getItem('lastPlayedWE') === todayStr) {
+            revealedCount = parseInt(localStorage.getItem('lastRevealedWE')) || 6;
+            lockGame();
+        }
+
+        const wordCount = currentShow.title.split(' ').length;
+        document.getElementById('wordHint').innerText = `${wordCount} Word${wordCount > 1 ? 's' : ''}`;
+        renderBricks();
+    }
+
+    function renderBricks() {
+        const container = document.getElementById('bricksContainer');
+        container.innerHTML = '';
+        activeBricks.forEach((brick, index) => {
+            const isRevealed = index < revealedCount;
+            const div = document.createElement('div');
+            div.className = `brick ${isRevealed ? 'revealed' : ''} ${brick.isFinal ? 'title-reveal' : ''}`;
+            const valClass = brick.isUnderscore ? 'brick-value underscore-font' : 'brick-value';
+            div.innerHTML = `<div class="brick-label">${brick.role}</div><div class="${valClass}">${isRevealed?brick.name:'???'}</div>`;
+            container.appendChild(div);
+        });
+    }
+
+    function skipClue() {
+        if (revealedCount < activeBricks.length - 1) {
+            revealedCount++;
+            renderBricks();
+        }
+    }
+
+    function handleGuess() {
+        const input = document.getElementById('guessInput');
+        const guess = input.value.trim().toLowerCase().replace(/[^a-z0-9]/g, "");
+        const actual = currentShow.title.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+        if (guess === actual || (actual.includes(guess) && guess.length > 5)) {
+            streak++;
+            if (streak > bestStreak) {
+                bestStreak = streak;
+                localStorage.setItem('theatreBricksBestWE_Final', bestStreak);
+            }
+            localStorage.setItem('theatreBricksStreakWE', streak);
+            endGame("CURTAIN CALL! SUCCESS 🎭");
+        } else {
+            if (revealedCount < activeBricks.length - 1) {
+                revealedCount++; 
+                renderBricks();
+                document.getElementById('message').innerText = "Incorrect! Next brick revealed.";
+            } else {
+                streak = 0;
+                localStorage.setItem('theatreBricksStreakWE', 0);
+                endGame(`Show Closed! It was ${currentShow.title}`);
+            }
+        }
+        input.value = "";
+    }
+
+    function surrender() { 
+        streak = 0;
+        localStorage.setItem('theatreBricksStreakWE', 0);
+        endGame(`You gave up! It was ${currentShow.title}`); 
+    }
+
+    function endGame(msg) {
+        localStorage.setItem('lastPlayedWE', todayStr);
+        localStorage.setItem('lastRevealedWE', revealedCount);
+        localStorage.setItem('lastResultWE', revealedCount);
+        document.getElementById('message').innerText = msg;
+        revealedCount = 6;
+        renderBricks();
+        lockGame();
+    }
+
+    function lockGame() {
+        document.getElementById('guessInput').disabled = true;
+        document.getElementById('mainInputGroup').style.display = 'none';
+        document.getElementById('secondaryGroup').style.display = 'none';
+        document.getElementById('shareBtn').style.display = 'block';
+        startTimer();
+    }
+
+    function startTimer() {
+        const timerFn = () => {
+            const now = new Date();
+            const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+            const diff = tomorrow - now;
+            const h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
+            const msg = document.getElementById('message');
+            if(!msg.innerHTML.includes("NEXT SHOW")) {
+                msg.innerHTML += `<br><br>NEXT SHOW IN:<br><span id="timer">--:--:--</span>`;
+            }
+            document.getElementById('timer').innerText = `${h}h ${m}m ${s}s`;
+        };
+        timerFn();
+        setInterval(timerFn, 1000);
+    }
+
+    function copyShare() {
+        const result = parseInt(localStorage.getItem('lastResultWE'));
+        const win = result < 6;
+        let grid = "";
+        for(let i=1; i<=5; i++) grid += (i < result) ? "🧱" : (win ? "⬜" : "❌");
+        const text = `Theatre Bricks #${dailyNum}\n${grid}\nStreak: ${streak}\nhttps://your-game-link.com`;
+        navigator.clipboard.writeText(text).then(() => alert("Copied to clipboard!"));
+    }
+
+    document.getElementById('guessInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') handleGuess(); });
+    window.onload = init;
+</script>
+</body>
+</html>

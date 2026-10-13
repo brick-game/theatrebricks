@@ -1,389 +1,1867 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49FS2G73EP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theatre Bricks</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAKm0lEQVR42u2d+49dVRXH99p7n3PPfc9Mp5122mmdaafDS4Yqpb4KKiKWgEQxgIT4IGKI+EtJSOAHgyiGRE1MqEZiCGAkhRg1PAwSK4aHCTIIOC30aTvQ6Wvamc7Mfd+zz97bH24B5VFmeu+k58z5fv6BmbPuZ6/9OPusRYWxPQyA94MjBAByAMgBIAeAHAByAMgBIAeAHAByAMgBAOQAkANADgA5AOQAkANADgA5AOQAkAMAyAEgB4AcAHIAyAEgB4AcAHIAyAEgBwCQA0AOADkA5ACQA0AOADkA5ACQA0AOEF/kXP8BawxjjFkbr7gSEREjghzv54S1zBgSQiZTJARxESc1rNXaKGWUb40hziNqiZwTL6wRXlK4nipOT+7cVhs/WhwdIc5jIgYJmetdlV66PNXVLVwvqFWM75MQcZfDGsOFdFLZqT07Dj3712PDQ6XREaOU1UGsJhUupZPNZZf3dV/4xa4L1icXLfYL05GbaKiFXROs1jKVDqrlXQ/9ZvRvTwTlokh43E3Mg9n3FPKH0dr4daP89JKe/mtvWHbx5SZQRqkIZdCWyWG1djLZ6X27t95z1+Su19xsnoRgxti4LUX/d1HKiREZ3w8qpaWf23DOTbfKVEbXa1HxozVyWK1lOjO9Z/vQnRtVseBksiYIGHhbEiFqxycWnLNm7Q9+LpIpEyiiCPjRgn/RGiOSqcqh0aEf3RJUKjKdgRnvnmKCwOvoPL5j+F93306MEfFI7O1bIAdxbgM1vOkn/vSU8DyrNXx4LyZQiXz7xPBLO393r5POnjj+md9yNJYa+x59ePzfQ242BzNO5ocOnGzujSf/cHz7qzKVDr8fzclhLXfd6tihN//yJyedNTDjQ8LFSAjj13dvvm/+TyvWGJlMHXv1xeqxw9x1WXw3JrNZuSczx3dsLe7fK70kC3fyaC5zEBmljgw9T1zAjJnGTPCgUjr68gvccUO+z29CDmu5lH5hsrB3twj9c4Zq80LEj2/fao0O+dlgk3I4tYlxVS6RlMgcs4zbMVUuhfyFy6nLYRkjIeuTE7pajstLtdasSk/ELWjELcSDqskf1ZIQsXtv0gpDSAgKfdyaHvGYTeZv3DAdAMgBIAeAHAByAMgBIAeAHAByAMgBIMepYo3BCfqpxM1GIG68ySeUqRR3cAds9nHzUvP5sg8RGd9PL+lx2zpMoPBudhZxUyqzbLmTa7NBEOa48Wae0gSBm2tLL12ufZ8gx4zjZrXO9Q3w0N+QasHt84WDa60xyBwzxVjuJjrP/bgJd9poVg7iXNeqSz79eTf0GTIsWYNzVS11Dp7fcdZ5QbUS8ht0zd4+176fWrxs6We/pColXBacSciYZX1Xfp2EmOe7lcbySvv1/qu/lepaaup1+HGyWEnpF6aWXnTpwjXrVDkCY6np/4/I+PVE+4KP3nybVr61Bn58kBlBuZRZ3nvWjRu1isb6vRUfUguhysVF53/q3O/fHpTLJgiiWOJobqMsZVAqOpnsmlt+6GbzRvksJnIwxogLVSquuOyqwY13kBCqVCAhkEIYo8Y4qU1O5PpWr/vxL9tWnx1UylEpn9fisk9uvm1q1+s7Htx07NUhLoTwkieySPxKTTJrjQ50pSJSqZ4vfHng+u/KZDqolCOUVlspBzvxoXCKMTb69J8P/P3JwsgeVSwwYiQEi5MeVmsSws21da1b33vFNfmVA0GlYnQQrWzaYjkYY9YYIpLprFF+cf/eiW2vVI8eLo2+QZzP/+9piZi1XMhs76rcR1a1rToz1d1jgkDXKkTRq0baejneUkQTcZ5ICDfRqHsUq7MMLh1rjPHr2vcZsUhUAHsvc1XBuLHm0vW6rlYZNYZUXMxgljFrGxWuI70qn9va50TE3l5/UYwyxzzZgeMQAkAOADkA5ACQA0AOADlAtJCRfwJrrbXxe7HHGn3k5vRIPsJyWKMZI+EmuOMQj1ndOmtMEBjlm0AxNlfnsDKikSHOnWyeGVM6uL86dqg4OqKKhZhcMrI6SC5cnF2xMr2kx21rt8YElfJcvMGREQyNdjLZoFoZ3fLE2D+fndy51Z+eskZHoklFy2YVznnCSy5Y1Dm4tvuiSzvOGrTG6Fq1tcNjrt7KztHygjHmZPNjQ8/v/O2vCnt3Mc5FwuNSMkYsVt9FWGatMco3vk+CL/nMJauv+062p9cvTLfQj+jIYS0jLlx3z+8f2PPI/YyYTKZiuhp959cjIs6Y9YvTifbOc266tXv9JapUaNUSJErTikgkXvv1T/c99rDX0dmYX+K+17TWWs0Yc3PtulZ5+e7bgnJp+YavqBblj2icc1itnWx+xwObRh5/JNm5yBoTqxXGTJaoXDpOJju86a7Dz21xc/mWjBweETNyB595at+jmxPtC9Bd8AN3cETSS26792fF0RHhJZsfP6GXw1ruurWJozvuv4c7LsqAnNwP7iTqk+O7N9/HpZz/mcMaI73U/qcerYwdlJ7HMJt82PziZvOHnt9y7OUXnHSmyeQRdjkan9MdfuEZ4XpoMDjDLYzV+tA/nm6+txoPedoQXnJq9/bywTdFIoHiUjPNtQlvYtsr1fEx7jjNBC3cmcNaLp2p3a/rWpXh48rZrNKq40fKB94UiYSdt3IwZrUuHzkQ8nZXoZxZgvKRg03OLDzsD2l0dewwI6SNWQ+q6tFm4xaBoJOU+LFPS9yiMCIxoZymuCFdA8gBIAeAHAByAMgBIAeAHAByAMgRBtCM4fTELQp3SA3u+JyeuIX+JhhxJ5PF65VTCFzzcQv7ZR+SMt83YI1Gp59ZxU04iXxvvzVNdUgK/X0OHeR6+9GAclZBM0q5+fbUkmVN9t7j4X5M0vVaftVAclG38X0kj1kErf9Mr7PLKDWfM4dRylvQtfiTF6pqGW1cZho2IVZs+Grz/X5CvyDlXNerPRdf7nV0RqWHzenVQpWLnYNrF37sE813Cgv9VpZI12r5lWf0XXmdKhU5ksfJl2jGcDex+robW7JE45EYDfXC1Mqrrl+87sL65ASXDjR4/99SCH9q8oxvfK/j7POCSrn5QgzROD4nxozWgxvv6Dh7TX1ygkuJ+eVdky9xXh0/2nvltb1XXOO3qAJWZIq3WGNEwlPl4vAv7jzy4nNOJtvoaRLzLS4RZ5yCaoVZ1n/tDf1Xf1v7PrOtaRAepbJP1hjuOFyI//zxoZHHNtcnJ2QyxR230R8pblYwYtYYXa9ZpXIrB8745s1dF6xXxemGMq35G1GqCcbeKguWayvs2zXy+CPjwy9Vxg7bQJEQcer3Q8xoa61wveyKvhWXfa17/SXS81S5FOOCcW8borXwPOEmapMTx7e9Uty/r3TgDb9Y4ELM+zZyRGR0kOxcnOvtz68cyPWtdtIZVS41ym+2+G9FUQ7GmLWWWcOlIxIeSWmVsnGaWRpte41Sul6zRs9Ro1oZ3QHESFitVbnUaKh2orlaPNYb77SR43zuWhhH/DNUov87JEYbudYenOCQAEAOADkA5ACQA0AOADkA5ACQA0AOADkAgBwAcgDIASAHgBwAcgDIASAHgBwAcgAAOQDkAJADQA4AOQDkAJADQA4AOQDkAAByAMgBIAeAHAByAMgBIAeAHAByAMgB4st/AUYspM9MHdIRAAAAAElFTkSuQmCC">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Theatre Bricks">
+<meta name="theme-color" content="#F2E9DB">
+<style>
+/* Layout: everything above the fold on a phone. Centered word count, then seven same-size bricks sized from the screen height, then the guess box. */
+:root {
+  --bg: #F2E9DB;
+  --surface: #FAF4E8;
+  --fg: #2B1A12;
+  --muted: #76604F;
+  --line: #D8C9B2;
+  --mortar: #E5D8C2;
+  --mortar-ink: #85705D;
+  --brick: #AE4826;
+  --brick-ink: #FBF1E2;
+  --bad: #A8261F;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bh: clamp(48px, calc((100vh - 320px) / 6), 68px);
+  --bh: clamp(48px, calc((100dvh - 320px) / 6), 68px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A120E; --surface: #251913; --fg: #F3E7D3; --muted: #B39F8A; --line: #3A2A21;
+    --mortar: #2E211A; --mortar-ink: #A58F7B; --brick: #CB6339; --brick-ink: #1F120B; --bad: #FF8F80;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1A120E; --surface: #251913; --fg: #F3E7D3; --muted: #B39F8A; --line: #3A2A21;
+  --mortar: #2E211A; --mortar-ink: #A58F7B; --brick: #CB6339; --brick-ink: #1F120B; --bad: #FF8F80;
+  color-scheme: dark;
+}
 
-  gtag('config', 'G-49FS2G73EP');
-</script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theatre Bricks: Daily West End Edition</title>
-    <style>
-        :root { 
-            --bg: #0f172a; 
-            --olivier-gold: #e0fcff; 
-            --brick: #1e293b; 
-            --correct: #10b981; 
-            --wrong: #f43f5e; 
-            --text: #f8fafc;
-            --accent: #3b82f6;
-        }
-        
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background: var(--bg); color: var(--text); 
-            display: flex; flex-direction: column; align-items: center; 
-            min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box;
-        }
+* { box-sizing: border-box; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+html, body { min-height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.4;
+  padding-inline: 16px;
+  padding-block: 12px 32px;
+}
+.app { max-width: 480px; margin-inline: auto; display: flex; flex-direction: column; gap: 14px; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--brick); outline-offset: 3px; }
 
-        .header { text-align: center; margin-bottom: 10px; border-bottom: 4px solid var(--olivier-gold); width: 100%; max-width: 450px; }
-        h1 { margin: 10px 0; letter-spacing: 2px; color: var(--olivier-gold); font-size: 1.8rem; }
-        #dailyVol { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 5px; }
-        
-        .hint-container { text-align: center; margin: 10px 0 20px 0; }
-        .main-callout { font-size: 2.2rem; font-weight: 900; margin: 0; line-height: 1.2; color: var(--olivier-gold); text-transform: uppercase; }
-        .word-hint { font-size: 1.2rem; font-weight: 600; margin-top: 5px; color: var(--text); letter-spacing: 1px; }
+/* Header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.logo { font-weight: 800; font-size: 17px; line-height: 1; margin: 0; display: flex; align-items: center; gap: 8px; letter-spacing: -.01em; }
+.logo i { display: grid; gap: 2px; }
+.logo i b { display: block; width: 16px; height: 6px; border-radius: 1.5px; background: var(--brick); }
+.logo i b:nth-child(2) { margin-left: 5px; }
+.seg { display: inline-flex; border: 1.5px solid var(--fg); border-radius: 999px; padding: 2px; }
+.seg button { border: 0; background: transparent; padding: 4px 12px; border-radius: 999px; font-weight: 600; font-size: 13px; }
+.seg button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
 
-        .bricks-container { 
-            display: flex; flex-direction: column-reverse; 
-            gap: 8px; width: 100%; max-width: 450px; margin-bottom: 20px; 
-        }
+/* Word count */
+.words { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0; }
+.words .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.words .count { display: flex; align-items: baseline; justify-content: center; gap: 8px; }
+.words .num { font-size: 40px; font-weight: 800; line-height: 1.05; color: var(--brick); font-variant-numeric: tabular-nums; }
+.words .unit { font-size: 15px; font-weight: 600; }
 
-        .brick { 
-            background: var(--brick); border-left: 5px solid #334155; 
-            padding: 12px; border-radius: 4px; opacity: 0.1; filter: blur(2px);
-            transition: all 0.4s ease;
-        }
+/* Brick wall: seven identical bricks, laid in a running bond */
+.wall { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.row-a, .row-b { margin: 0; }
+.brick {
+  --c: var(--mortar); --ink: var(--mortar-ink);
+  position: relative; display: flex; align-items: center; gap: 12px;
+  width: 100%; height: var(--bh); padding: 0 14px; border-radius: 3px; border: 0; text-align: left; overflow: hidden;
+  background: var(--c); color: var(--ink);
+}
+.brick .label { flex: none; width: 80px; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; line-height: 1.25; }
+.brick .label small { display: block; font-size: 12px; letter-spacing: 0; font-weight: 600; }
+.brick .value {
+  flex: 1; min-width: 0; font-size: 17px; font-weight: 700; line-height: 1.15;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere;
+}
+.brick.locked .value { font-weight: 500; letter-spacing: .2em; }
+button.brick.next { box-shadow: inset 0 0 0 2px var(--brick); color: var(--brick); }
+button.brick.next:hover { background: color-mix(in srgb, var(--mortar) 70%, var(--brick)); }
+.brick .go { margin-left: auto; flex: none; font-weight: 600; font-size: 13px; background: var(--brick); color: var(--brick-ink); padding: 5px 12px; border-radius: 999px; }
+.brick.open {
+  --c: var(--brick); --ink: var(--brick-ink);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .22), inset 0 -3px 0 rgb(0 0 0 / .16);
+}
+.brick.open.t2 { --c: color-mix(in srgb, var(--brick) 88%, #4a1608); }
+.brick.open.t3 { --c: color-mix(in srgb, var(--brick) 90%, #f2a572); }
+.brick.open::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .28; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+}
+.brick.pop { animation: pop .4s cubic-bezier(.3, 1.5, .5, 1); }
+@keyframes pop { from { transform: translateY(14px); opacity: .1; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .brick.pop { animation: none; } }
 
-        .brick.revealed { opacity: 1; filter: blur(0); border-left-color: var(--olivier-gold); }
-        .brick.title-reveal.revealed { border-left-color: var(--correct); background: #064e3b; animation: successFlash 0.5s ease; }
-        
-        @keyframes successFlash {
-            0% { background: var(--olivier-gold); }
-            100% { background: #064e3b; }
-        }
+/* Guess */
+.guess { display: flex; flex-direction: column; gap: 8px; }
+.guess-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.guess-head h2 { margin: 0; font-weight: 700; font-size: 16px; line-height: 1.2; }
+.worth { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.worth b { color: var(--fg); font-weight: 700; }
+.field { position: relative; display: flex; gap: 8px; }
+.field input {
+  flex: 1; min-width: 0; font: inherit; padding: 11px 12px; border-radius: 4px;
+  border: 1.5px solid var(--fg); background: var(--surface); color: var(--fg);
+}
+.field input::placeholder { color: var(--muted); }
+.btn { border: 0; border-radius: 4px; padding: 11px 18px; font-weight: 600; background: var(--brick); color: var(--brick-ink); }
+.btn.ghost { background: transparent; color: var(--fg); border: 1.5px solid var(--fg); }
+.sugg { position: absolute; z-index: 5; left: 0; right: 0; top: calc(100% + 6px); margin: 0; padding: 6px; list-style: none;
+  background: var(--surface); border: 1.5px solid var(--fg); border-radius: 4px; box-shadow: 0 10px 30px rgb(43 26 18 / .22); }
+.sugg[hidden] { display: none; }
+.sugg li button { width: 100%; text-align: left; border: 0; background: transparent; padding: 10px; border-radius: 3px; }
+.sugg li button:hover, .sugg li button:focus-visible { background: var(--mortar); }
+.sugg small { color: var(--muted); margin-left: 6px; }
+.wrongs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.wrongs:empty { display: none; }
+.wrongs li { font-size: 13px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); text-decoration: line-through; text-decoration-color: var(--bad); }
+.link { background: none; border: 0; padding: 0; color: var(--muted); text-decoration: underline; font-size: 13px; align-self: flex-start; }
+.msg { min-height: 1.2em; margin: 0; font-size: 13px; color: var(--bad); }
 
-        .brick-label { font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; font-weight: bold; }
-        .brick-value { font-size: 1rem; font-weight: 600; margin-top: 2px; }
-        
-        .underscore-font { letter-spacing: 3px; font-family: 'Courier New', monospace; font-size: 1.1rem; color: var(--olivier-gold); }
+/* Result */
+.result { background: var(--surface); border: 1.5px solid var(--fg); border-radius: 4px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.result .kicker { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.result h2 { margin: 0; font-weight: 700; font-size: 22px; line-height: 1.15; text-wrap: balance; }
+.result .score { font-size: 44px; font-weight: 800; line-height: 1; color: var(--brick); font-variant-numeric: tabular-nums; }
+.result .score small { font-size: 14px; color: var(--muted); font-weight: 500; margin-left: 8px; }
+.result .row { display: flex; gap: 8px; flex-wrap: wrap; margin: 0; }
+.tiles { display: none; }
 
-        .controls { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 10px; }
-        .input-group { display: flex; gap: 8px; }
-        input { 
-            flex: 1; padding: 15px; border-radius: 5px; border: 2px solid #334155; 
-            background: #1e293b; color: white; font-size: 1rem; outline: none; 
-        }
-        input:focus { border-color: var(--olivier-gold); }
-        input:disabled { opacity: 0.5; }
-        
-        .btn-main { padding: 0 20px; border-radius: 5px; border: none; background: var(--olivier-gold); color: black; font-weight: 800; cursor: pointer; text-transform: uppercase; }
-        .btn-share { padding: 15px; background: var(--accent); color: white; border: none; border-radius: 5px; font-weight: 800; cursor: pointer; display: none; text-transform: uppercase; }
-
-        .secondary-controls { display: flex; justify-content: space-between; gap: 10px; }
-        .btn-sub { flex: 1; background: transparent; color: #64748b; font-size: 0.7rem; padding: 12px; border: 1px solid #334155; border-radius: 5px; cursor: pointer; text-transform: uppercase; }
-
-        #message { margin-top: 15px; font-weight: bold; text-align: center; min-height: 3em; line-height: 1.4; }
-        #timer { color: var(--olivier-gold); font-size: 1.2rem; }
-        .stats-container { margin-top: 10px; display: flex; gap: 20px; color: #64748b; font-size: 0.8rem; }
-        .high-score { color: var(--olivier-gold); font-weight: bold; }
-        .copyright { position: fixed; bottom: 10px; right: 10px; font-size: 0.8rem; color: #FFFFFF; text-transform: uppercase; }
-    </style>
+/* Footer */
+.foot { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 10px; border-top: 1.5px solid var(--fg); padding-top: 14px; margin-top: 8px; }
+.foot details summary { cursor: pointer; font-weight: 600; color: var(--fg); }
+.foot details .inner { display: flex; flex-direction: column; gap: 10px; padding-top: 10px; }
+.foot input { font: inherit; padding: 10px 12px; border-radius: 4px; border: 1.5px solid var(--fg); background: var(--surface); color: var(--fg); min-width: 0; width: 100%; }
+.brick .value.clue { font-size: 16px; letter-spacing: .14em; }
+.brick.locked .value.clue { font-size: 18px; letter-spacing: .2em; }
+</style>
 </head>
 <body>
-
-<div class="header">
-    <h1>THEATRE BRICKS</h1>
-    <div id="dailyVol">Show #--</div>
-</div>
-
-<div class="hint-container">
-    <div class="main-callout">Guess the Musical</div>
-    <div class="word-hint" id="wordHint">? Words</div>
-</div>
-
-<div class="bricks-container" id="bricksContainer"></div>
-
-<div class="controls">
-    <div class="input-group" id="mainInputGroup">
-        <input type="text" id="guessInput" placeholder="Enter title..." autocomplete="off">
-        <button class="btn-main" id="guessBtn" onclick="handleGuess()">GUESS</button>
+<main class="app">
+  <header class="top">
+    <h1 class="logo"><i aria-hidden="true"><b></b><b></b></i>Theatre Bricks</h1>
+    <div class="seg" role="group" aria-label="Game mode">
+      <button type="button" id="m-daily" aria-pressed="true">Daily</button>
+      <button type="button" id="m-random" aria-pressed="false">Random</button>
     </div>
-    <div class="secondary-controls" id="secondaryGroup">
-        <button class="btn-sub" onclick="skipClue()">Skip Clue</button>
-        <button class="btn-sub" onclick="surrender()" style="color: #f43f5e;">Give Up</button>
+  </header>
+
+  <section class="words" aria-live="polite">
+    <span class="eyebrow" id="date-line">The musical has</span>
+    <div class="count"><span class="num" id="wc">–</span><span class="unit" id="wu">words</span></div>
+  </section>
+
+  <section class="guess" id="guess-box">
+    <div class="guess-head">
+      <h2>Name the musical</h2>
+      <span class="worth" id="worth"></span>
     </div>
-    <button id="shareBtn" class="btn-share" onclick="copyShare()">Share Result 📋</button>
-</div>
+    <form class="field" id="form" autocomplete="off">
+      <input id="guess" type="text" placeholder="Start typing a title" aria-label="Your guess" autocapitalize="off" spellcheck="false">
+      <button class="btn" id="submit" type="submit">Guess</button>
+      <ul class="sugg" id="sugg" hidden></ul>
+    </form>
+    <p class="msg" id="msg" role="status"></p>
+    <ul class="wrongs" id="wrongs"></ul>
+    <button type="button" class="link" id="giveup">Give up</button>
+  </section>
 
-<div id="message"></div>
-<div class="stats-container">
-    <div>Streak: <span id="streak">0</span></div>
-    <div>Best: <span id="highScore" class="high-score">0</span></div>
-</div>
+  <ol class="wall" id="wall"></ol>
 
-<div class="copyright">© Brick Games</div>
+  <section class="result" id="result" hidden aria-live="polite"></section>
 
+  <footer class="foot">
+    <span>Original West End productions only. Years, theatres and stars are for the first West End run.</span>
+  </footer>
+</main>
 <script>
-    const theatreData = [
-              
-        { "title": "Les Miserables", "year": "1985", "bricks": [ { "role": "Opening Theatre", "name": "Barbican" }, { "role": "Original Star", "name": "Colm Wilkinson" }, { "role": "Music & Lyrics", "name": "Schönberg & Kretzmer" } ] },
-        { "title": "Hamilton", "year": "2017", "bricks": [ { "role": "Opening Theatre", "name": "Victoria Palace" }, { "role": "Original Star", "name": "Jamael Westman" }, { "role": "Music & Lyrics", "name": "Lin-Manuel Miranda" } ] },
-        { "title": "Oklahoma!", "year": "1947", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Howard Keel" }, { "role": "Music & Lyrics", "name": "Rodgers & Hammerstein" } ] },
-        { "title": "Wicked", "year": "2006", "bricks": [ { "role": "Opening Theatre", "name": "Apollo Victoria" }, { "role": "Original Star", "name": "Idina Menzel" }, { "role": "Music & Lyrics", "name": "Stephen Schwartz" } ] },
-        { "title": "Operation Mincemeat", "year": "2023", "bricks": [ { "role": "Opening Theatre", "name": "Fortune Theatre" }, { "role": "Original Star", "name": "SpitLip" }, { "role": "Music & Lyrics", "name": "SpitLip" } ] },
-        { "title": "My Fair Lady", "year": "1958", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Julie Andrews" }, { "role": "Music & Lyrics", "name": "Lerner & Loewe" } ] },
-        { "title": "Six", "year": "2019", "bricks": [ { "role": "Opening Theatre", "name": "Arts Theatre" }, { "role": "Original Star", "name": "The Original Queens" }, { "role": "Music & Lyrics", "name": "Marlow & Moss" } ] },
-        { "title": "The Phantom of the Opera", "year": "1986", "bricks": [ { "role": "Opening Theatre", "name": "Her Majesty's" }, { "role": "Original Star", "name": "Michael Crawford" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Hart" } ] },
-        { "title": "Matilda the Musical", "year": "2011", "bricks": [ { "role": "Opening Theatre", "name": "Cambridge Theatre" }, { "role": "Original Star", "name": "Bertie Carvel" }, { "role": "Music & Lyrics", "name": "Tim Minchin" } ] },
-        { "title": "Cabaret", "year": "1968", "bricks": [ { "role": "Opening Theatre", "name": "Palace Theatre" }, { "role": "Original Star", "name": "Judi Dench" }, { "role": "Music & Lyrics", "name": "Kander & Ebb" } ] },
-        { "title": "Come From Away", "year": "2019", "bricks": [ { "role": "Opening Theatre", "name": "Phoenix Theatre" }, { "role": "Original Star", "name": "Rachel Tucker" }, { "role": "Music & Lyrics", "name": "Sankoff & Hein" } ] },
-        { "title": "Oliver!", "year": "1960", "bricks": [ { "role": "Opening Theatre", "name": "New Theatre" }, { "role": "Original Star", "name": "Ron Moody" }, { "role": "Music & Lyrics", "name": "Lionel Bart" } ] },
-        { "title": "Back to the Future", "year": "2021", "bricks": [ { "role": "Opening Theatre", "name": "Adelphi Theatre" }, { "role": "Original Star", "name": "Olly Dobson" }, { "role": "Music & Lyrics", "name": "Silvestri & Ballard" } ] },
-        { "title": "The Lion King", "year": "1999", "bricks": [ { "role": "Opening Theatre", "name": "Lyceum Theatre" }, { "role": "Original Star", "name": "Josette Bushell-Mingo" }, { "role": "Music & Lyrics", "name": "Elton John & Tim Rice" } ] },
-        { "title": "Billy Elliot", "year": "2005", "bricks": [ { "role": "Opening Theatre", "name": "Victoria Palace" }, { "role": "Original Star", "name": "Liam Mower" }, { "role": "Music & Lyrics", "name": "Elton John & Lee Hall" } ] },
-        { "title": "Guys and Dolls", "year": "1953", "bricks": [ { "role": "Opening Theatre", "name": "London Coliseum" }, { "role": "Original Star", "name": "Jerry Wayne" }, { "role": "Music & Lyrics", "name": "Frank Loesser" } ] },
-        { "title": "Dear Evan Hansen", "year": "2019", "bricks": [ { "role": "Opening Theatre", "name": "Noël Coward" }, { "role": "Original Star", "name": "Sam Tutty" }, { "role": "Music & Lyrics", "name": "Pasek & Paul" } ] },
-        { "title": "Kinky Boots", "year": "2015", "bricks": [ { "role": "Opening Theatre", "name": "Adelphi Theatre" }, { "role": "Original Star", "name": "Matt Henry" }, { "role": "Music & Lyrics", "name": "Cyndi Lauper" } ] },
-        { "title": "The Rocky Horror Show", "year": "1973", "bricks": [ { "role": "Opening Theatre", "name": "Royal Court" }, { "role": "Original Star", "name": "Tim Curry" }, { "role": "Music & Lyrics", "name": "Richard O'Brien" } ] },
-        { "title": "The Book of Mormon", "year": "2013", "bricks": [ { "role": "Opening Theatre", "name": "Prince of Wales" }, { "role": "Original Star", "name": "Gavin Creel" }, { "role": "Music & Lyrics", "name": "Parker, Stone & Lopez" } ] },
-        { "title": "Jesus Christ Superstar", "year": "1972", "bricks": [ { "role": "Opening Theatre", "name": "Palace Theatre" }, { "role": "Original Star", "name": "Paul Nicholas" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Rice" } ] },
-        { "title": "Evita", "year": "1978", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Elaine Paige" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Rice" } ] },
-        { "title": "Moulin Rouge!", "year": "2021", "bricks": [ { "role": "Opening Theatre", "name": "Piccadilly Theatre" }, { "role": "Original Star", "name": "Liisi LaFontaine" }, { "role": "Music & Lyrics", "name": "Various Artists" } ] },
-        { "title": "Annie Get Your Gun", "year": "1947", "bricks": [ { "role": "Opening Theatre", "name": "London Coliseum" }, { "role": "Original Star", "name": "Dolores Gray" }, { "role": "Music & Lyrics", "name": "Irving Berlin" } ] },
-        { "title": "Blood Brothers", "year": "1983", "bricks": [ { "role": "Opening Theatre", "name": "Lyric Theatre" }, { "role": "Original Star", "name": "Barbara Dickson" }, { "role": "Music & Lyrics", "name": "Willy Russell" } ] },
-        { "title": "Cats", "year": "1981", "bricks": [ { "role": "Opening Theatre", "name": "New London" }, { "role": "Original Star", "name": "Elaine Paige" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Eliot" } ] },
-        { "title": "Miss Saigon", "year": "1989", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Lea Salonga" }, { "role": "Music & Lyrics", "name": "Schönberg & Boublil" } ] },
-        { "title": "Everybodys Talking About Jamie", "year": "2017", "bricks": [ { "role": "Opening Theatre", "name": "Apollo Theatre" }, { "role": "Original Star", "name": "John McCrea" }, { "role": "Music & Lyrics", "name": "Gillespie & Sells" } ] },
-        { "title": "The Sound of Music", "year": "1961", "bricks": [ { "role": "Opening Theatre", "name": "Palace Theatre" }, { "role": "Original Star", "name": "Jean Bayless" }, { "role": "Music & Lyrics", "name": "Rodgers & Hammerstein" } ] },
-        { "title": "Standing at the Sky's Edge", "year": "2024", "bricks": [ { "role": "Opening Theatre", "name": "Gillian Lynne" }, { "role": "Original Star", "name": "Maimuna Memon" }, { "role": "Music & Lyrics", "name": "Richard Hawley" } ] },
-        { "title": "Legally Blonde", "year": "2010", "bricks": [ { "role": "Opening Theatre", "name": "Savoy Theatre" }, { "role": "Original Star", "name": "Sheridan Smith" }, { "role": "Music & Lyrics", "name": "O'Keefe & Benjamin" } ] },
-        { "title": "Hadestown", "year": "2024", "bricks": [ { "role": "Opening Theatre", "name": "Lyric Theatre" }, { "role": "Original Star", "name": "Dónal Finn" }, { "role": "Music & Lyrics", "name": "Anaïs Mitchell" } ] },
-        { "title": "Jersey Boys", "year": "2008", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Ryan Molloy" }, { "role": "Music & Lyrics", "name": "Gaudio & Crewe" } ] },
-        { "title": "Mean Girls", "year": "2024", "bricks": [ { "role": "Opening Theatre", "name": "Savoy Theatre" }, { "role": "Original Star", "name": "Charlie Burn" }, { "role": "Music & Lyrics", "name": "Richmond & Benjamin" } ] },
-        { "title": "Chitty Chitty Bang Bang", "year": "2002", "bricks": [ { "role": "Opening Theatre", "name": "London Palladium" }, { "role": "Original Star", "name": "Michael Ball" }, { "role": "Music & Lyrics", "name": "Sherman Brothers" } ] },
-        { "title": "Groundhog Day", "year": "2016", "bricks": [ { "role": "Opening Theatre", "name": "Old Vic" }, { "role": "Original Star", "name": "Andy Karl" }, { "role": "Music & Lyrics", "name": "Tim Minchin" } ] },
-        { "title": "Fiddler on the Roof", "year": "1967", "bricks": [ { "role": "Opening Theatre", "name": "Her Majesty's" }, { "role": "Original Star", "name": "Topol" }, { "role": "Music & Lyrics", "name": "Bock & Harnick" } ] },
-        { "title": "The Little Big Things", "year": "2023", "bricks": [ { "role": "Opening Theatre", "name": "@sohoplace" }, { "role": "Original Star", "name": "Ed Larkin" }, { "role": "Music & Lyrics", "name": "Butcher & Ling" } ] },
-        { "title": "Sweeney Todd", "year": "1980", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Denis Quilley" }, { "role": "Music & Lyrics", "name": "Stephen Sondheim" } ] },
-        { "title": "West Side Story", "year": "1958", "bricks": [ { "role": "Opening Theatre", "name": "Her Majesty's" }, { "role": "Original Star", "name": "George Chakiris" }, { "role": "Music & Lyrics", "name": "Bernstein & Sondheim" } ] },
-        { "title": "Waitress", "year": "2019", "bricks": [ { "role": "Opening Theatre", "name": "Adelphi Theatre" }, { "role": "Original Star", "name": "Katharine McPhee" }, { "role": "Music & Lyrics", "name": "Sara Bareilles" } ] },
-        { "title": "Frozen", "year": "2021", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Samantha Barks" }, { "role": "Music & Lyrics", "name": "Lopez & Anderson-Lopez" } ] },
-        { "title": "Heathers: The Musical", "year": "2018", "bricks": [ { "role": "Opening Theatre", "name": "The Other Palace" }, { "role": "Original Star", "name": "Carrie Hope Fletcher" }, { "role": "Music & Lyrics", "name": "Murphy & O'Keefe" } ] },
-        { "title": "Anything Goes", "year": "1935", "bricks": [ { "role": "Opening Theatre", "name": "Palace Theatre" }, { "role": "Original Star", "name": "Jeanne Aubert" }, { "role": "Music & Lyrics", "name": "Cole Porter" } ] },
-        { "title": "Hairspray", "year": "2007", "bricks": [ { "role": "Opening Theatre", "name": "Shaftesbury Theatre" }, { "role": "Original Star", "name": "Michael Ball" }, { "role": "Music & Lyrics", "name": "Shaiman & Wittman" } ] },
-        { "title": "The Producers", "year": "2004", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Nathan Lane" }, { "role": "Music & Lyrics", "name": "Mel Brooks" } ] },
-        { "title": "Chicago", "year": "1979", "bricks": [ { "role": "Opening Theatre", "name": "Cambridge Theatre" }, { "role": "Original Star", "name": "Ben Vereen" }, { "role": "Music & Lyrics", "name": "Kander & Ebb" } ] },
-        { "title": "Tina: The Tina Turner Musical", "year": "2018", "bricks": [ { "role": "Opening Theatre", "name": "Aldwych Theatre" }, { "role": "Original Star", "name": "Adrienne Warren" }, { "role": "Music & Lyrics", "name": "Various" } ] },
-        { "title": "Me and My Girl", "year": "1985", "bricks": [ { "role": "Opening Theatre", "name": "Adelphi Theatre" }, { "role": "Original Star", "name": "Robert Lindsay" }, { "role": "Music & Lyrics", "name": "Gay, Furber & Rose" } ] },
-        { "title": "School of Rock", "year": "2016", "bricks": [ { "role": "Opening Theatre", "name": "Gillian Lynne" }, { "role": "Original Star", "name": "David Fynn" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Slater" } ] },
-        { "title": "Ghost the Musical", "year": "2011", "bricks": [ { "role": "Opening Theatre", "name": "Piccadilly Theatre" }, { "role": "Original Star", "name": "Richard Fleeshman" }, { "role": "Music & Lyrics", "name": "Stewart, Ballard & Rubin" } ] },
-        { "title": "Buddy – The Buddy Holly Story", "year": "1989", "bricks": [ { "role": "Opening Theatre", "name": "Victoria Palace" }, { "role": "Original Star", "name": "Paul Hipp" }, { "role": "Music & Lyrics", "name": "Various" } ] },
-        { "title": "Once", "year": "2013", "bricks": [ { "role": "Opening Theatre", "name": "Phoenix Theatre" }, { "role": "Original Star", "name": "Declan Bennett" }, { "role": "Music & Lyrics", "name": "Hansard & Irglová" } ] },
-        { "title": "Priscilla, Queen of the Desert", "year": "2009", "bricks": [ { "role": "Opening Theatre", "name": "Palace Theatre" }, { "role": "Original Star", "name": "Jason Donovan" }, { "role": "Music & Lyrics", "name": "Various" } ] },
-        { "title": "Dreamgirls", "year": "2016", "bricks": [ { "role": "Opening Theatre", "name": "Savoy Theatre" }, { "role": "Original Star", "name": "Amber Riley" }, { "role": "Music & Lyrics", "name": "Krieger & Eyen" } ] },
-        { "title": "Sister Act", "year": "2009", "bricks": [ { "role": "Opening Theatre", "name": "London Palladium" }, { "role": "Original Star", "name": "Patina Miller" }, { "role": "Music & Lyrics", "name": "Menken & Slater" } ] },
-        { "title": "Avenue Q", "year": "2006", "bricks": [ { "role": "Opening Theatre", "name": "Noël Coward" }, { "role": "Original Star", "name": "Jon Robyns" }, { "role": "Music & Lyrics", "name": "Lopez & Marx" } ] },
-        { "title": "The Bodyguard", "year": "2012", "bricks": [ { "role": "Opening Theatre", "name": "Adelphi Theatre" }, { "role": "Original Star", "name": "Heather Headley" }, { "role": "Music & Lyrics", "name": "Various" } ] },
-        { "title": "Spamalot", "year": "2006", "bricks": [ { "role": "Opening Theatre", "name": "Palace Theatre" }, { "role": "Original Star", "name": "Tim Curry" }, { "role": "Music & Lyrics", "name": "Idle & Du Prez" } ] },
-        { "title": "Rock of Ages", "year": "2011", "bricks": [ { "role": "Opening Theatre", "name": "Shaftesbury Theatre" }, { "role": "Original Star", "name": "Justin Lee Collins" }, { "role": "Music & Lyrics", "name": "Various" } ] },
-        { "title": "Beautiful: The Carole King Musical", "year": "2015", "bricks": [ { "role": "Opening Theatre", "name": "Aldwych Theatre" }, { "role": "Original Star", "name": "Katie Brayben" }, { "role": "Music & Lyrics", "name": "Goffin, King, Weil & Mann" } ] },
-        { "title": "Charlie and the Chocolate Factory", "year": "2013", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Douglas Hodge" }, { "role": "Music & Lyrics", "name": "Shaiman & Wittman" } ] },
-        { "title": "Mrs. Doubtfire", "year": "2023", "bricks": [ { "role": "Opening Theatre", "name": "Shaftesbury Theatre" }, { "role": "Original Star", "name": "Gabriel Vick" }, { "role": "Music & Lyrics", "name": "Karey & Wayne Kirkpatrick" } ] },
-        { "title": "Starlight Express", "year": "1984", "bricks": [ { "role": "Opening Theatre", "name": "Apollo Victoria" }, { "role": "Original Star", "name": "Stephanie Lawrence" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Stilgoe" } ] },
-        { "title": "Memphis", "year": "2014", "bricks": [ { "role": "Opening Theatre", "name": "Shaftesbury Theatre" }, { "role": "Original Star", "name": "Beverley Knight" }, { "role": "Music & Lyrics", "name": "Bryan & DiPietro" } ] },
-        { "title": "Damn Yankees", "year": "1957", "bricks": [ { "role": "Opening Theatre", "name": "London Coliseum" }, { "role": "Original Star", "name": "Belita" }, { "role": "Music & Lyrics", "name": "Adler & Ross" } ] },
-        { "title": "The King and I", "year": "1953", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Valerie Hobson" }, { "role": "Music & Lyrics", "name": "Rodgers & Hammerstein" } ] },
-        { "title": "Salad Days", "year": "1954", "bricks": [ { "role": "Opening Theatre", "name": "Vaudeville Theatre" }, { "role": "Original Star", "name": "John Warner" }, { "role": "Music & Lyrics", "name": "Slade & Reynolds" } ] },
-        { "title": "High Society", "year": "1987", "bricks": [ { "role": "Opening Theatre", "name": "Victoria Palace" }, { "role": "Original Star", "name": "Natasha Richardson" }, { "role": "Music & Lyrics", "name": "Cole Porter" } ] },
-        { "title": "Billy", "year": "1974", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Michael Crawford" }, { "role": "Music & Lyrics", "name": "Clement & La Frenais" } ] },
-        { "title": "Sweet Charity", "year": "1967", "bricks": [ { "role": "Opening Theatre", "name": "Prince of Wales" }, { "role": "Original Star", "name": "Gretchen Wyler" }, { "role": "Music & Lyrics", "name": "Coleman & Fields" } ] },
-        { "title": "Man of La Mancha", "year": "1968", "bricks": [ { "role": "Opening Theatre", "name": "Piccadilly Theatre" }, { "role": "Original Star", "name": "Keith Michell" }, { "role": "Music & Lyrics", "name": "Leigh & Darion" } ] },
-        { "title": "Our House", "year": "2002", "bricks": [ { "role": "Opening Theatre", "name": "Cambridge Theatre" }, { "role": "Original Star", "name": "Michael Jibson" }, { "role": "Music & Lyrics", "name": "Madness" } ] },
-        { "title": "Company", "year": "1972", "bricks": [ { "role": "Opening Theatre", "name": "Her Majesty's" }, { "role": "Original Star", "name": "Elaine Stritch" }, { "role": "Music & Lyrics", "name": "Stephen Sondheim" } ] },
-        { "title": "Call Me Madam", "year": "1952", "bricks": [ { "role": "Opening Theatre", "name": "London Coliseum" }, { "role": "Original Star", "name": "Billie Worth" }, { "role": "Music & Lyrics", "name": "Irving Berlin" } ] },
-        { "title": "Wonderful Town", "year": "1955", "bricks": [ { "role": "Opening Theatre", "name": "Princes Theatre" }, { "role": "Original Star", "name": "Pat Kirkwood" }, { "role": "Music & Lyrics", "name": "Bernstein, Comden & Green" } ] },
-        { "title": "The Music Man", "year": "1961", "bricks": [ { "role": "Opening Theatre", "name": "Adelphi Theatre" }, { "role": "Original Star", "name": "Van Johnson" }, { "role": "Music & Lyrics", "name": "Meredith Willson" } ] },
-        { "title": "Bye Bye Birdie", "year": "1961", "bricks": [ { "role": "Opening Theatre", "name": "Her Majesty's" }, { "role": "Original Star", "name": "Chita Rivera" }, { "role": "Music & Lyrics", "name": "Strouse & Adams" } ] },
-        { "title": "Pippin", "year": "1973", "bricks": [ { "role": "Opening Theatre", "name": "Her Majesty's" }, { "role": "Original Star", "name": "Paul Jones" }, { "role": "Music & Lyrics", "name": "Stephen Schwartz" } ] },
-        { "title": "Godspell", "year": "1971", "bricks": [ { "role": "Opening Theatre", "name": "Wyndham's" }, { "role": "Original Star", "name": "David Essex" }, { "role": "Music & Lyrics", "name": "Stephen Schwartz" } ] },
-        { "title": "Five Guys Named Moe", "year": "1990", "bricks": [ { "role": "Opening Theatre", "name": "Lyric Theatre" }, { "role": "Original Star", "name": "Clarke Peters" }, { "role": "Music & Lyrics", "name": "Louis Jordan" } ] },
-        { "title": "Hair", "year": "1968", "bricks": [ { "role": "Opening Theatre", "name": "Shaftesbury Theatre" }, { "role": "Original Star", "name": "Paul Nicholas" }, { "role": "Music & Lyrics", "name": "MacDermot, Ragni & Rado" } ] },
-        { "title": "A Funny Thing Happened on the Way to the Forum", "year": "1963", "bricks": [ { "role": "Opening Theatre", "name": "Strand Theatre" }, { "role": "Original Star", "name": "Frankie Howerd" }, { "role": "Music & Lyrics", "name": "Stephen Sondheim" } ] },
-        { "title": "Camelot", "year": "1964", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Laurence Harvey" }, { "role": "Music & Lyrics", "name": "Lerner & Loewe" } ] },
-        { "title": "Singin' in the Rain", "year": "2000", "bricks": [ { "role": "Opening Theatre", "name": "National Theatre" }, { "role": "Original Star", "name": "Adam Cooper" }, { "role": "Music & Lyrics", "name": "Brown & Freed" } ] },
-        { "title": "The Boy Friend", "year": "1953", "bricks": [ { "role": "Opening Theatre", "name": "Players' Theatre" }, { "role": "Original Star", "name": "Anne Rogers" }, { "role": "Music & Lyrics", "name": "Sandy Wilson" } ] },
-        { "title": "The Full Monty", "year": "2002", "bricks": [ { "role": "Opening Theatre", "name": "Prince of Wales" }, { "role": "Original Star", "name": "John Ellison Conlee" }, { "role": "Music & Lyrics", "name": "David Yazbek" } ] }, 
-        { "title": "Barnum", "year": "1981", "bricks": [ { "role": "Opening Theatre", "name": "London Palladium" }, { "role": "Original Star", "name": "Michael Crawford" }, { "role": "Music & Lyrics", "name": "Coleman & Stewart" } ] },
-        { "title": "Sunset Boulevard", "year": "1993", "bricks": [ { "role": "Opening Theatre", "name": "Adelphi Theatre" }, { "role": "Original Star", "name": "Patti LuPone" }, { "role": "Music & Lyrics", "name": "Lloyd Webber & Black" } ] },
-	    { "title": "Mamma Mia!", "year": "1999", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Siobhan McCarthy" }, { "role": "Music & Lyrics", "name": "ABBA" } ] },
-        { "title": "Sunny Afternoon", "year": "2014", "bricks": [ { "role": "Opening Theatre", "name": "Harold Pinter" }, { "role": "Original Star", "name": "John Dagleish" }, { "role": "Music & Lyrics", "name": "Ray Davies" } ] },
-        { "title": "Mary Poppins", "year": "2004", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Laura Michelle Kelly" }, { "role": "Music & Lyrics", "name": "Sherman / Stiles & Drewe" } ] },
-        { "title": "The Devil Wears Prada", "year": "2024", "bricks": [ { "role": "Opening Theatre", "name": "Dominion Theatre" }, { "role": "Original Star", "name": "Vanessa Williams" }, { "role": "Music & Lyrics", "name": "Elton John & Shaina Taub" } ] },
-        { "title": "Follies", "year": "1987", "bricks": [ { "role": "Opening Theatre", "name": "Shaftesbury Theatre" }, { "role": "Original Star", "name": "Diana Rigg" }, { "role": "Music & Lyrics", "name": "Stephen Sondheim" } ] },
-        { "title": "La Cage aux Folles", "year": "1986", "bricks": [ { "role": "Opening Theatre", "name": "London Palladium" }, { "role": "Original Star", "name": "Denis Quilley" }, { "role": "Music & Lyrics", "name": "Jerry Herman" } ] },
-        { "title": "South Pacific", "year": "1951", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Mary Martin" }, { "role": "Music & Lyrics", "name": "Rodgers & Hammerstein" } ] },
-        { "title": "A Chorus Line", "year": "1976", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Jane Summerhays" }, { "role": "Music & Lyrics", "name": "Hamlisch & Kleban" } ] },
-        { "title": "Chess", "year": "1986", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Murray Head" }, { "role": "Music & Lyrics", "name": "Ulvaeus, Andersson & Rice" } ] },
-        { "title": "Half a Sixpence", "year": "1963", "bricks": [ { "role": "Opening Theatre", "name": "Cambridge Theatre" }, { "role": "Original Star", "name": "Tommy Steele" }, { "role": "Music & Lyrics", "name": "David Heneker" } ] },
-        { "title": "Annie", "year": "1978", "bricks": [ { "role": "Opening Theatre", "name": "Victoria Palace" }, { "role": "Original Star", "name": "Andrea McArdle" }, { "role": "Music & Lyrics", "name": "Strouse & Charnin" } ] },
-        { "title": "Funny Girl", "year": "1966", "bricks": [ { "role": "Opening Theatre", "name": "Prince of Wales" }, { "role": "Original Star", "name": "Barbra Streisand" }, { "role": "Music & Lyrics", "name": "Jule Styne & Bob Merrill" } ] },
-        { "title": "Beauty and the Beast", "year": "1997", "bricks": [ { "role": "Opening Theatre", "name": "Dominion Theatre" }, { "role": "Original Star", "name": "Julie-Alanah Brighton" }, { "role": "Music & Lyrics", "name": "Menken, Ashman & Rice" } ] },
-        { "title": "Beetlejuice", "year": "2026", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "David Fynn" }, { "role": "Music & Lyrics", "name": "Eddie Perfect" } ] },
-        { "title": "42nd Street", "year": "1984", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Catherine Zeta-Jones" }, { "role": "Music & Lyrics", "name": "Warren & Dubin" } ] },
-        { "title": "Grease", "year": "1973", "bricks": [ { "role": "Opening Theatre", "name": "New London" }, { "role": "Original Star", "name": "Richard Gere" }, { "role": "Music & Lyrics", "name": "Jacobs & Casey" } ] },
-        { "title": "Crazy for You", "year": "1993", "bricks": [ { "role": "Opening Theatre", "name": "Prince Edward" }, { "role": "Original Star", "name": "Ruthie Henshall" }, { "role": "Music & Lyrics", "name": "Gershwin & Gershwin" } ] },
-        { "title": "Hello, Dolly!", "year": "1965", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Mary Martin" }, { "role": "Music & Lyrics", "name": "Jerry Herman" } ] },
-        { "title": "The Pajama Game", "year": "1955", "bricks": [ { "role": "Opening Theatre", "name": "London Coliseum" }, { "role": "Original Star", "name": "Edmund Hockridge" }, { "role": "Music & Lyrics", "name": "Adler & Ross" } ] },
-        { "title": "The Witches of Eastwick", "year": "2000", "bricks": [ { "role": "Opening Theatre", "name": "Drury Lane" }, { "role": "Original Star", "name": "Ian McShane" }, { "role": "Music & Lyrics", "name": "Dana P. Rowe" } ] },
-        { "title": "Kiss Me, Kate", "year": "1951", "bricks": [ { "role": "Opening Theatre", "name": "London Coliseum" }, { "role": "Original Star", "name": "Patricia Morison" }, { "role": "Music & Lyrics", "name": "Cole Porter" } ] },
-        { "title": "We Will Rock You", "year": "2002", "bricks": [ { "role": "Opening Theatre", "name": "Dominion Theatre" }, { "role": "Original Star", "name": "Hannah Jane Fox" }, { "role": "Music & Lyrics", "name": "Queen" } ] }
-    ];
+(function () {
+  // [title, year of West End premiere, original theatre, original star, music & lyrics]
+  var DATA = [
+[
+"42nd Street",
+1984,
+"Theatre Royal Drury Lane",
+"James Laurenson & Georgia Brown",
+"Harry Warren, Al Dubin & Johnny Mercer"
+],
+[
+"Acorn Antiques the Musical!",
+2005,
+"Theatre Royal Haymarket",
+"Julie Walters & Celia Imrie",
+"Victoria Wood",
+[
+"Acorn Antiques"
+]
+],
+[
+"Ain't Misbehavin'",
+1979,
+"Her Majesty's Theatre",
+"André DeShields & Charlayne Woodard",
+"Fats Waller and others"
+],
+[
+"Ain't Too Proud",
+2023,
+"Prince Edward Theatre",
+"Sifiso Mazibuko & Mitchell Zhangazha",
+"The Temptations and Motown songwriters"
+],
+[
+"Aladdin",
+2016,
+"Prince Edward Theatre",
+"Dean John-Wilson & Trevor Dion Nicholas",
+"Alan Menken, Howard Ashman, Tim Rice & Chad Beguelin"
+],
+[
+"An American in Paris",
+2017,
+"Dominion Theatre",
+"Robert Fairchild & Leanne Cope",
+"George Gershwin & Ira Gershwin"
+],
+[
+"& Juliet",
+2019,
+"Shaftesbury Theatre",
+"Miriam-Teak Lee & Oliver Tompsett",
+"Max Martin and others"
+],
+[
+"Annie",
+1978,
+"Victoria Palace Theatre",
+"Stratford Johns & Sheila Hancock",
+"Charles Strouse & Martin Charnin"
+],
+[
+"Annie Get Your Gun",
+1947,
+"London Coliseum",
+"Dolores Gray & Bill Johnson",
+"Irving Berlin"
+],
+[
+"Anything Goes",
+1935,
+"Palace Theatre",
+"Jeanne Aubert & Jack Whiting",
+"Cole Porter"
+],
+[
+"Applause",
+1972,
+"Her Majesty's Theatre",
+"Lauren Bacall",
+"Charles Strouse & Lee Adams"
+],
+[
+"Aspects of Love",
+1989,
+"Prince of Wales Theatre",
+"Ann Crumb & Michael Ball",
+"Andrew Lloyd Webber, Don Black & Charles Hart"
+],
+[
+"Avenue Q",
+2006,
+"Noël Coward Theatre",
+"Jon Robyns & Julie Atherton",
+"Robert Lopez & Jeff Marx"
+],
+[
+"Back to the Future",
+2021,
+"Adelphi Theatre",
+"Olly Dobson & Roger Bart",
+"Alan Silvestri & Glen Ballard",
+[
+"Back to the Future the Musical"
+]
+],
+[
+"Barnum",
+1981,
+"London Palladium",
+"Michael Crawford & Deborah Grant",
+"Cy Coleman & Michael Stewart"
+],
+[
+"Bat Out of Hell",
+2017,
+"London Coliseum",
+"Andrew Polec",
+"Jim Steinman"
+],
+[
+"The Beautiful Game",
+2000,
+"Cambridge Theatre",
+"Josie Walker & David Shannon",
+"Andrew Lloyd Webber & Ben Elton"
+],
+[
+"Beautiful: The Carole King Musical",
+2015,
+"Aldwych Theatre",
+"Katie Brayben & Alan Morrissey",
+"Carole King, Gerry Goffin, Barry Mann & Cynthia Weil",
+[
+"Beautiful"
+]
+],
+[
+"Beauty and the Beast",
+1997,
+"Dominion Theatre",
+"Julie-Alanah Brighten & Alasdair Harvey",
+"Alan Menken, Howard Ashman & Tim Rice"
+],
+[
+"Bend It Like Beckham the Musical",
+2015,
+"Phoenix Theatre",
+"Natalie Dew & Lauren Samuels",
+"Howard Goodall & Charles Hart"
+],
+[
+"The Best Little Whorehouse in Texas",
+1981,
+"Theatre Royal Drury Lane",
+"Carlin Glynn & Henderson Forsythe",
+"Carol Hall"
+],
+[
+"Betty Blue Eyes",
+2011,
+"Novello Theatre",
+"Sarah Lancashire & Reece Shearsmith",
+"George Stiles & Anthony Drewe"
+],
+[
+"Billy",
+1974,
+"Theatre Royal Drury Lane",
+"Michael Crawford",
+"John Barry & Don Black"
+],
+[
+"Billy Elliot the Musical",
+2005,
+"Victoria Palace Theatre",
+"Liam Mower, James Lomas & George Maguire",
+"Elton John & Lee Hall"
+],
+[
+"Bitter Sweet",
+1929,
+"His Majesty's Theatre",
+"Peggy Wood & George Metaxa",
+"Noël Coward"
+],
+[
+"Bless the Bride",
+1947,
+"Adelphi Theatre",
+"Lizbeth Webb & Georges Guétary",
+"Vivian Ellis & A. P. Herbert"
+],
+[
+"Blitz!",
+1962,
+"Adelphi Theatre",
+"Amelia Bayntun & Grazina Frame",
+"Lionel Bart"
+],
+[
+"Blood Brothers",
+1983,
+"Lyric Theatre",
+"Barbara Dickson & Andrew Schofield",
+"Willy Russell"
+],
+[
+"The Bodyguard",
+2012,
+"Adelphi Theatre",
+"Heather Headley & Lloyd Owen",
+"Whitney Houston hits"
+],
+[
+"The Book of Mormon",
+2013,
+"Prince of Wales Theatre",
+"Gavin Creel & Jared Gertner",
+"Trey Parker, Robert Lopez & Matt Stone"
+],
+[
+"The Boy Friend",
+1954,
+"Wyndham's Theatre",
+"Anne Rogers",
+"Sandy Wilson"
+],
+[
+"Brigadoon",
+1949,
+"Her Majesty's Theatre",
+"Philip Hanna & Patricia Hughes",
+"Frederick Loewe & Alan Jay Lerner"
+],
+[
+"Buddy: The Buddy Holly Story",
+1989,
+"Victoria Palace Theatre",
+"Paul Hipp & Gareth Marks",
+"Buddy Holly and others",
+[
+"Buddy"
+]
+],
+[
+"Bye Bye Birdie",
+1961,
+"Her Majesty's Theatre",
+"Peter Marshall & Marty Wilde",
+"Charles Strouse & Lee Adams"
+],
+[
+"Cabaret",
+1968,
+"Palace Theatre",
+"Judi Dench & Kevin Colson",
+"John Kander & Fred Ebb"
+],
+[
+"Call Me Madam",
+1952,
+"London Coliseum",
+"Billie Worth",
+"Irving Berlin"
+],
+[
+"Camelot",
+1964,
+"Theatre Royal Drury Lane",
+"Laurence Harvey & Elizabeth Larner",
+"Frederick Loewe & Alan Jay Lerner"
+],
+[
+"Candide",
+1959,
+"Saville Theatre",
+"Denis Quilley & Mary Costa",
+"Leonard Bernstein & Richard Wilbur"
+],
+[
+"Canterbury Tales",
+1968,
+"Phoenix Theatre",
+"Wilfrid Brambell & Jessie Evans",
+"John Hawkins, Richard Hill & Nevill Coghill"
+],
+[
+"Carousel",
+1950,
+"Theatre Royal Drury Lane",
+"Stephen Douglass & Iva Withers",
+"Richard Rodgers & Oscar Hammerstein II"
+],
+[
+"Cats",
+1981,
+"New London Theatre (now the Gillian Lynne)",
+"Elaine Paige",
+"Andrew Lloyd Webber & T. S. Eliot"
+],
+[
+"Charlie and the Chocolate Factory",
+2013,
+"Theatre Royal Drury Lane",
+"Douglas Hodge",
+"Marc Shaiman & Scott Wittman",
+[
+"Charlie and the Chocolate Factory the Musical"
+]
+],
+[
+"Charlie Girl",
+1965,
+"Adelphi Theatre",
+"Anna Neagle & Joe Brown",
+"David Heneker & John Taylor"
+],
+[
+"Chess",
+1986,
+"Prince Edward Theatre",
+"Murray Head & Elaine Paige",
+"Benny Andersson, Björn Ulvaeus & Tim Rice"
+],
+[
+"Chicago",
+1979,
+"Cambridge Theatre",
+"Jenny Logan & Ben Cross",
+"John Kander & Fred Ebb"
+],
+[
+"Children of Eden",
+1991,
+"Prince Edward Theatre",
+"Ken Page & Martin Smith",
+"Stephen Schwartz"
+],
+[
+"Chitty Chitty Bang Bang",
+2002,
+"London Palladium",
+"Michael Ball & Emma Williams",
+"The Sherman Brothers"
+],
+[
+"Chu Chin Chow",
+1916,
+"His Majesty's Theatre",
+"Oscar Asche & Lily Brayton",
+"Frederic Norton & Oscar Asche"
+],
+[
+"Cinderella",
+2021,
+"Gillian Lynne Theatre",
+"Carrie Hope Fletcher & Ivano Turco",
+"Andrew Lloyd Webber & David Zippel"
+],
+[
+"City of Angels",
+1993,
+"Prince of Wales Theatre",
+"Roger Allam & Martin Smith",
+"Cy Coleman & David Zippel"
+],
+[
+"Come From Away",
+2019,
+"Phoenix Theatre",
+"Rachel Tucker & Clive Carter",
+"Irene Sankoff & David Hein"
+],
+[
+"Company",
+1972,
+"Her Majesty's Theatre",
+"Larry Kert & Elaine Stritch",
+"Stephen Sondheim"
+],
+[
+"Copacabana",
+1994,
+"Prince of Wales Theatre",
+"Gary Wilmot & Nicola Dawn",
+"Barry Manilow, Bruce Sussman & Jack Feldman"
+],
+[
+"Damn Yankees",
+1957,
+"London Coliseum",
+"Belita & Bill Kerr",
+"Richard Adler & Jerry Ross"
+],
+[
+"The Dancing Years",
+1939,
+"Theatre Royal Drury Lane",
+"Ivor Novello & Mary Ellis",
+"Ivor Novello & Christopher Hassall"
+],
+[
+"Dear Evan Hansen",
+2019,
+"Noël Coward Theatre",
+"Sam Tutty",
+"Benj Pasek & Justin Paul"
+],
+[
+"Dirty Rotten Scoundrels",
+2014,
+"Savoy Theatre",
+"Robert Lindsay & Rufus Hound",
+"David Yazbek"
+],
+[
+"Dreamgirls",
+2016,
+"Savoy Theatre",
+"Amber Riley",
+"Henry Krieger & Tom Eyen"
+],
+[
+"The Drifters Girl",
+2021,
+"Garrick Theatre",
+"Beverley Knight & Adam J. Bernard",
+"The Drifters songbook"
+],
+[
+"The Drowsy Chaperone",
+2007,
+"Novello Theatre",
+"Elaine Paige & John Partridge",
+"Lisa Lambert & Greg Morrison"
+],
+[
+"Elf the Musical",
+2015,
+"Dominion Theatre",
+"Ben Forster & Kimberley Walsh",
+"Matthew Sklar & Chad Beguelin",
+[
+"Elf"
+]
+],
+[
+"Elvis",
+1977,
+"Astoria Theatre",
+"Shakin' Stevens & Tracey Ullman",
+"The Elvis Presley songbook"
+],
+[
+"Everybody's Talking About Jamie",
+2017,
+"Apollo Theatre",
+"John McCrea",
+"Dan Gillespie Sells & Tom MacRae"
+],
+[
+"Evita",
+1978,
+"Prince Edward Theatre",
+"Elaine Paige & David Essex",
+"Andrew Lloyd Webber & Tim Rice"
+],
+[
+"Fanny",
+1956,
+"Theatre Royal Drury Lane",
+"Robert Morley & Kevin Scott",
+"Harold Rome"
+],
+[
+"Fiddler on the Roof",
+1967,
+"Her Majesty's Theatre",
+"Topol & Miriam Karlin",
+"Jerry Bock & Sheldon Harnick"
+],
+[
+"Fings Ain't Wot They Used T'Be",
+1960,
+"Garrick Theatre",
+"Maurice Kaufmann & Wallas Eaton",
+"Lionel Bart"
+],
+[
+"Finian's Rainbow",
+1947,
+"Palace Theatre",
+"Patrick J. Kelly & Beryl Seton",
+"Burton Lane & E. Y. Harburg"
+],
+[
+"Flower Drum Song",
+1960,
+"Palace Theatre",
+"Yau Shan Tung & Kevin Scott",
+"Richard Rodgers & Oscar Hammerstein II"
+],
+[
+"Footloose",
+2006,
+"Novello Theatre",
+"David Essex & Cheryl Baker",
+"Tom Snow & Dean Pitchford"
+],
+[
+"Frozen",
+2021,
+"Theatre Royal Drury Lane",
+"Samantha Barks & Stephanie McKeon",
+"Kristen Anderson-Lopez & Robert Lopez"
+],
+[
+"The Full Monty",
+2002,
+"Prince of Wales Theatre",
+"Jarrod Emick & Dora Bryan",
+"David Yazbek"
+],
+[
+"Funny Girl",
+1966,
+"Prince of Wales Theatre",
+"Barbra Streisand & Michael Craig",
+"Jule Styne & Bob Merrill"
+],
+[
+"Gentlemen Prefer Blondes",
+1962,
+"Princes Theatre",
+"Dora Bryan & Anne Hart",
+"Jule Styne & Leo Robin"
+],
+[
+"Get Up, Stand Up! The Bob Marley Musical",
+2021,
+"Lyric Theatre",
+"Arinzé Kene",
+"Bob Marley",
+[
+"Get Up Stand Up"
+]
+],
+[
+"Ghost the Musical",
+2011,
+"Piccadilly Theatre",
+"Richard Fleeshman & Caissie Levy",
+"Dave Stewart, Glen Ballard & Bruce Joel Rubin"
+],
+[
+"Gigi",
+1985,
+"Lyric Theatre",
+"Amanda Waring & Geoffrey Burridge",
+"Frederick Loewe & Alan Jay Lerner"
+],
+[
+"Girl from the North Country",
+2018,
+"Noël Coward Theatre",
+"Shirley Henderson",
+"Bob Dylan"
+],
+[
+"Golden Boy",
+1968,
+"London Palladium",
+"Sammy Davis Jr.",
+"Charles Strouse & Lee Adams"
+],
+[
+"Gone with the Wind",
+2008,
+"New London Theatre (now the Gillian Lynne)",
+"Darius Danesh & Jill Paice",
+"Margaret Martin"
+],
+[
+"The Good Companions",
+1974,
+"Her Majesty's Theatre",
+"John Mills & Judi Dench",
+"André Previn & Johnny Mercer"
+],
+[
+"Grease",
+1973,
+"New London Theatre (now the Gillian Lynne)",
+"Richard Gere & Stacey Gregg",
+"Jim Jacobs & Warren Casey"
+],
+[
+"Guys and Dolls",
+1953,
+"London Coliseum",
+"Vivian Blaine & Sam Levene",
+"Frank Loesser"
+],
+[
+"Gypsy",
+1973,
+"Piccadilly Theatre",
+"Angela Lansbury & Zan Charisse",
+"Jule Styne & Stephen Sondheim"
+],
+[
+"Hadestown",
+2024,
+"Lyric Theatre",
+"Dónal Finn & Grace Hodgett Young",
+"Anaïs Mitchell"
+],
+[
+"Hair",
+1968,
+"Shaftesbury Theatre",
+"Paul Nicholas & Oliver Tobias",
+"Galt MacDermot, Gerome Ragni & James Rado"
+],
+[
+"Hairspray",
+2007,
+"Shaftesbury Theatre",
+"Michael Ball & Mel Smith",
+"Marc Shaiman & Scott Wittman"
+],
+[
+"Half a Sixpence",
+1963,
+"Cambridge Theatre",
+"Tommy Steele & Marti Webb",
+"David Heneker"
+],
+[
+"Hamilton",
+2017,
+"Victoria Palace Theatre",
+"Jamael Westman & Giles Terera",
+"Lin-Manuel Miranda"
+],
+[
+"Heathers the Musical",
+2018,
+"Theatre Royal Haymarket",
+"Carrie Hope Fletcher & Jamie Muscato",
+"Laurence O'Keefe & Kevin Murphy",
+[
+"Heathers"
+]
+],
+[
+"Hello, Dolly!",
+1965,
+"Theatre Royal Drury Lane",
+"Mary Martin & Loring Smith",
+"Jerry Herman"
+],
+[
+"Hot Mikado",
+1995,
+"Queen's Theatre",
+"Lawrence Hamilton & Paul Manuel",
+"Rob Bowman & David H. Bell"
+],
+[
+"How to Succeed in Business Without Really Trying",
+1963,
+"Shaftesbury Theatre",
+"Warren Berlinger & Billy De Wolfe",
+"Frank Loesser",
+[
+"How to Succeed"
+]
+],
+[
+"Into the Woods",
+1990,
+"Phoenix Theatre",
+"Julia McKenzie & Ian Bartholomew",
+"Stephen Sondheim"
+],
+[
+"Irma la Douce",
+1958,
+"Lyric Theatre",
+"Keith Michell & Elizabeth Seal",
+"Marguerite Monnot, Julian More & David Heneker"
+],
+[
+"Jerry Springer: The Opera",
+2003,
+"Cambridge Theatre",
+"Michael Brandon",
+"Richard Thomas & Stewart Lee",
+[
+"Jerry Springer"
+]
+],
+[
+"Jersey Boys",
+2008,
+"Prince Edward Theatre",
+"Ryan Molloy & Stephen Ashfield",
+"Bob Gaudio & Bob Crewe"
+],
+[
+"Jesus Christ Superstar",
+1972,
+"Palace Theatre",
+"Paul Nicholas & Stephen Tate",
+"Andrew Lloyd Webber & Tim Rice"
+],
+[
+"Jolson",
+1995,
+"Victoria Palace Theatre",
+"Brian Conley & Sally Ann Triplett",
+"The Al Jolson songbook"
+],
+[
+"Joseph and the Amazing Technicolor Dreamcoat",
+1973,
+"Albery Theatre (now the Noël Coward)",
+"Gary Bond & Peter Reeves",
+"Andrew Lloyd Webber & Tim Rice",
+[
+"Joseph"
+]
+],
+[
+"The King and I",
+1953,
+"Theatre Royal Drury Lane",
+"Valerie Hobson & Herbert Lom",
+"Richard Rodgers & Oscar Hammerstein II"
+],
+[
+"Kinky Boots",
+2015,
+"Adelphi Theatre",
+"Killian Donnelly & Matt Henry",
+"Cyndi Lauper"
+],
+[
+"Kismet",
+1955,
+"Stoll Theatre",
+"Alfred Drake & Doretta Morrow",
+"Alexander Borodin, Robert Wright & George Forrest"
+],
+[
+"Kiss Me, Kate",
+1951,
+"London Coliseum",
+"Patricia Morison & Bill Johnson",
+"Cole Porter"
+],
+[
+"Kiss of the Spider Woman",
+1992,
+"Shaftesbury Theatre",
+"Brent Carver & Chita Rivera",
+"John Kander & Fred Ebb"
+],
+[
+"La Cage aux Folles",
+1986,
+"London Palladium",
+"George Hearn & Denis Quilley",
+"Jerry Herman"
+],
+[
+"Legally Blonde",
+2010,
+"Savoy Theatre",
+"Sheridan Smith & Duncan James",
+"Laurence O'Keefe & Nell Benjamin"
+],
+[
+"Les Misérables",
+1985,
+"Palace Theatre",
+"Colm Wilkinson & Roger Allam",
+"Schönberg, Boublil & Herbert Kretzmer",
+[
+"Les Mis"
+]
+],
+[
+"The Lion King",
+1999,
+"Lyceum Theatre",
+"Rob Edwards & Josette Bushell-Mingo",
+"Elton John & Tim Rice"
+],
+[
+"Little Me",
+1964,
+"Cambridge Theatre",
+"Bruce Forsyth & Eileen Gourlay",
+"Cy Coleman & Carolyn Leigh"
+],
+[
+"A Little Night Music",
+1975,
+"Adelphi Theatre",
+"Jean Simmons & Joss Ackland",
+"Stephen Sondheim"
+],
+[
+"Little Shop of Horrors",
+1983,
+"Comedy Theatre",
+"Barry James & Ellen Greene",
+"Alan Menken & Howard Ashman"
+],
+[
+"Loserville",
+2012,
+"Garrick Theatre",
+"Stewart Clarke",
+"Elliot Davis & James Bourne"
+],
+[
+"Love Never Dies",
+2010,
+"Adelphi Theatre",
+"Ramin Karimloo",
+"Andrew Lloyd Webber & Glenn Slater"
+],
+[
+"Mack and Mabel",
+1995,
+"Piccadilly Theatre",
+"Howard McGillin & Caroline O'Connor",
+"Jerry Herman"
+],
+[
+"Made in Dagenham",
+2014,
+"Adelphi Theatre",
+"Gemma Arterton & Adrian Der Gregorian",
+"David Arnold & Richard Thomas"
+],
+[
+"Maggie May",
+1964,
+"Adelphi Theatre",
+"Rachel Roberts & Kenneth Haigh",
+"Lionel Bart"
+],
+[
+"Make Me an Offer",
+1959,
+"New Theatre (now the Noël Coward)",
+"Daniel Massey & Dilys Laye",
+"Monty Norman & David Heneker"
+],
+[
+"Mame",
+1969,
+"Theatre Royal Drury Lane",
+"Ginger Rogers & Margaret Courtenay",
+"Jerry Herman"
+],
+[
+"Mamma Mia!",
+1999,
+"Prince Edward Theatre",
+"Siobhán McCarthy",
+"Benny Andersson & Björn Ulvaeus"
+],
+[
+"Man of La Mancha",
+1968,
+"Piccadilly Theatre",
+"Keith Michell",
+"Mitch Leigh & Joe Darion"
+],
+[
+"Martin Guerre",
+1996,
+"Prince Edward Theatre",
+"Matt Rawle & Iain Glen",
+"Schönberg, Boublil & Stephen Clark"
+],
+[
+"Mary Poppins",
+2004,
+"Prince Edward Theatre",
+"Laura Michelle Kelly & Gavin Lee",
+"The Sherman Brothers & George Stiles"
+],
+[
+"Matilda the Musical",
+2011,
+"Cambridge Theatre",
+"Bertie Carvel & Paul Kaye",
+"Tim Minchin"
+],
+[
+"Me and My Girl",
+1937,
+"Victoria Palace Theatre",
+"Lupino Lane",
+"Noel Gay, Douglas Furber & L. Arthur Rose"
+],
+[
+"Mean Girls",
+2024,
+"Savoy Theatre",
+"Georgina Castle & Charlie Burn",
+"Jeff Richmond & Nell Benjamin",
+[
+"Mean Girls the Musical"
+]
+],
+[
+"Memphis",
+2014,
+"Shaftesbury Theatre",
+"Killian Donnelly & Beverley Knight",
+"David Bryan & Joe DiPietro"
+],
+[
+"Metropolis",
+1989,
+"Piccadilly Theatre",
+"Brian Blessed & Judy Kuhn",
+"Joe Brooks & Dusty Hughes"
+],
+[
+"Miss Saigon",
+1989,
+"Theatre Royal Drury Lane",
+"Lea Salonga & Jonathan Pryce",
+"Schönberg, Boublil & Richard Maltby Jr."
+],
+[
+"The Most Happy Fella",
+1960,
+"London Coliseum",
+"Inia Te Wiata & Helena Scott",
+"Frank Loesser"
+],
+[
+"Mr Cinders",
+1929,
+"Adelphi Theatre",
+"Bobby Howes & Binnie Hale",
+"Vivian Ellis & Clifford Grey"
+],
+[
+"Mrs. Doubtfire",
+2023,
+"Shaftesbury Theatre",
+"Gabriel Vick & Laura Tebbutt",
+"Wayne Kirkpatrick & Karey Kirkpatrick"
+],
+[
+"Mrs Henderson Presents",
+2016,
+"Noël Coward Theatre",
+"Tracie Bennett & Ian Bartholomew",
+"George Fenton, Simon Chamberlain & Don Black"
+],
+[
+"The Music Man",
+1961,
+"Adelphi Theatre",
+"Van Johnson & Patricia Lambert",
+"Meredith Willson"
+],
+[
+"Mutiny!",
+1985,
+"Piccadilly Theatre",
+"David Essex & Frank Finlay",
+"David Essex & Richard Crane"
+],
+[
+"My Fair Lady",
+1958,
+"Theatre Royal Drury Lane",
+"Rex Harrison & Julie Andrews",
+"Frederick Loewe & Alan Jay Lerner"
+],
+[
+"No, No, Nanette",
+1925,
+"Palace Theatre",
+"Binnie Hale & Joseph Coyne",
+"Vincent Youmans, Irving Caesar & Otto Harbach"
+],
+[
+"Oklahoma!",
+1947,
+"Theatre Royal Drury Lane",
+"Howard Keel & Betty Jane Watson",
+"Richard Rodgers & Oscar Hammerstein II"
+],
+[
+"Oliver!",
+1960,
+"New Theatre (now the Noël Coward)",
+"Ron Moody & Georgia Brown",
+"Lionel Bart"
+],
+[
+"On the Town",
+1963,
+"Prince of Wales Theatre",
+"Elliott Gould & Don McKay",
+"Leonard Bernstein, Betty Comden & Adolph Green"
+],
+[
+"On the Twentieth Century",
+1980,
+"Her Majesty's Theatre",
+"Keith Michell & Julia McKenzie",
+"Cy Coleman, Betty Comden & Adolph Green"
+],
+[
+"Once",
+2013,
+"Phoenix Theatre",
+"Declan Bennett",
+"Glen Hansard & Markéta Irglová"
+],
+[
+"Once on This Island",
+1994,
+"Royalty Theatre",
+"Lorna Brown & Anthony Corriete",
+"Stephen Flaherty & Lynn Ahrens"
+],
+[
+"Our House",
+2002,
+"Cambridge Theatre",
+"Michael Jibson & Julia Gay",
+"Madness"
+],
+[
+"Our Man Crichton",
+1964,
+"Shaftesbury Theatre",
+"Millicent Martin & Kenneth More",
+"David Lee & Herbert Kretzmer"
+],
+[
+"Paddington the Musical",
+2025,
+"Savoy Theatre",
+"James Hameed & Arti Shah",
+"Tom Fletcher"
+],
+[
+"Paint Your Wagon",
+1953,
+"Her Majesty's Theatre",
+"Bobby Howes & Sally Ann Howes",
+"Frederick Loewe & Alan Jay Lerner"
+],
+[
+"The Pajama Game",
+1955,
+"London Coliseum",
+"Edmund Hockridge & Joy Nichols",
+"Richard Adler & Jerry Ross"
+],
+[
+"The Phantom of the Opera",
+1986,
+"Her Majesty's Theatre",
+"Michael Crawford & Sarah Brightman",
+"Andrew Lloyd Webber & Charles Hart",
+[
+"Phantom"
+]
+],
+[
+"Pickwick",
+1963,
+"Saville Theatre",
+"Harry Secombe & Jessie Evans",
+"Cyril Ornadel & Leslie Bricusse"
+],
+[
+"Pippin",
+1973,
+"Her Majesty's Theatre",
+"Northern Calloway & Paul Jones",
+"Stephen Schwartz"
+],
+[
+"Pretty Woman: The Musical",
+2020,
+"Piccadilly Theatre",
+"Aimie Atkinson & Danny Mac",
+"Bryan Adams & Jim Vallance",
+[
+"Pretty Woman"
+]
+],
+[
+"The Prince of Egypt",
+2020,
+"Dominion Theatre",
+"Luke Brady & Liam Tamne",
+"Stephen Schwartz"
+],
+[
+"Priscilla Queen of the Desert",
+2009,
+"Palace Theatre",
+"Jason Donovan & Tony Sheldon",
+"Various artists (disco hits)",
+[
+"Priscilla"
+]
+],
+[
+"The Producers",
+2004,
+"Theatre Royal Drury Lane",
+"Nathan Lane & Lee Evans",
+"Mel Brooks"
+],
+[
+"Promises, Promises",
+1969,
+"Prince of Wales Theatre",
+"Tony Roberts & Betty Buckley",
+"Burt Bacharach & Hal David"
+],
+[
+"Ragtime",
+2003,
+"Piccadilly Theatre",
+"Maria Friedman & Graham Bickley",
+"Stephen Flaherty & Lynn Ahrens"
+],
+[
+"Robert and Elizabeth",
+1964,
+"Lyric Theatre",
+"John Clements & June Bronhill",
+"Ron Grainer & Ronald Millar"
+],
+[
+"Rock of Ages",
+2011,
+"Shaftesbury Theatre",
+"Oliver Tompsett & Amy Pemberton",
+"Various (classic 80s rock)"
+],
+[
+"The Rocky Horror Show",
+1973,
+"Royal Court Theatre Upstairs",
+"Tim Curry & Patricia Quinn",
+"Richard O'Brien"
+],
+[
+"Salad Days",
+1954,
+"Vaudeville Theatre",
+"John Warner & Eleanor Drew",
+"Julian Slade & Dorothy Reynolds"
+],
+[
+"Saturday Night Fever",
+1998,
+"London Palladium",
+"Adam Garcia & Anita Louise Combe",
+"The Bee Gees"
+],
+[
+"School of Rock",
+2016,
+"New London Theatre (now the Gillian Lynne)",
+"David Fynn & Florence Andrews",
+"Andrew Lloyd Webber & Glenn Slater"
+],
+[
+"Scrooge",
+1996,
+"Dominion Theatre",
+"Anthony Newley",
+"Leslie Bricusse"
+],
+[
+"She Loves Me",
+1964,
+"Lyric Theatre",
+"Gary Raymond & Rita Moreno",
+"Jerry Bock & Sheldon Harnick"
+],
+[
+"Show Boat",
+1928,
+"Theatre Royal Drury Lane",
+"Cedric Hardwicke & Edith Day",
+"Jerome Kern & Oscar Hammerstein II"
+],
+[
+"Shrek the Musical",
+2011,
+"Theatre Royal Drury Lane",
+"Nigel Lindsay & Amanda Holden",
+"Jeanine Tesori & David Lindsay-Abaire"
+],
+[
+"Singin' in the Rain",
+1983,
+"London Palladium",
+"Tommy Steele & Roy Castle",
+"Nacio Herb Brown & Arthur Freed"
+],
+[
+"Sister Act",
+2009,
+"London Palladium",
+"Patina Miller & Sheila Hancock",
+"Alan Menken & Glenn Slater"
+],
+[
+"Snoopy",
+1983,
+"Duchess Theatre",
+"Teddy Kempner",
+"Larry Grossman & Hal Hackady"
+],
+[
+"Soho Cinders",
+2011,
+"Queen's Theatre",
+"Jos Slovick & Michael Xavier",
+"George Stiles & Anthony Drewe"
+],
+[
+"The Sound of Music",
+1961,
+"Palace Theatre",
+"Jean Bayless & Roger Dann",
+"Richard Rodgers & Oscar Hammerstein II"
+],
+[
+"South Pacific",
+1951,
+"Theatre Royal Drury Lane",
+"Mary Martin & Wilbur Evans",
+"Richard Rodgers & Oscar Hammerstein II"
+],
+[
+"Spamalot",
+2006,
+"Palace Theatre",
+"Tim Curry & Christopher Sieber",
+"John Du Prez & Eric Idle",
+[
+"Monty Python's Spamalot"
+]
+],
+[
+"Spring Awakening",
+2009,
+"Novello Theatre",
+"Aneurin Barnard & Charlotte Wakefield",
+"Duncan Sheik & Steven Sater"
+],
+[
+"Starlight Express",
+1984,
+"Apollo Victoria Theatre",
+"Stephanie Lawrence & Ray Shell",
+"Andrew Lloyd Webber & Richard Stilgoe"
+],
+[
+"Stephen Ward",
+2013,
+"Aldwych Theatre",
+"Alexander Hanson & Charlotte Spencer",
+"Andrew Lloyd Webber, Don Black & Christopher Hampton"
+],
+[
+"Stop the World – I Want to Get Off",
+1961,
+"Queen's Theatre",
+"Anthony Newley & Anna Quayle",
+"Leslie Bricusse & Anthony Newley",
+[
+"Stop the World"
+]
+],
+[
+"Sugar",
+1992,
+"Prince Edward Theatre",
+"Tommy Steele",
+"Jule Styne & Bob Merrill"
+],
+[
+"Sunny Afternoon",
+2014,
+"Harold Pinter Theatre",
+"John Dagleish & George Maguire",
+"Ray Davies"
+],
+[
+"Sunset Boulevard",
+1993,
+"Adelphi Theatre",
+"Patti LuPone & Kevin Anderson",
+"Andrew Lloyd Webber, Don Black & Christopher Hampton"
+],
+[
+"Sweeney Todd",
+1980,
+"Theatre Royal Drury Lane",
+"Denis Quilley & Sheila Hancock",
+"Stephen Sondheim",
+[
+"Sweeney Todd The Demon Barber of Fleet Street"
+]
+],
+[
+"Sweet Charity",
+1967,
+"Prince of Wales Theatre",
+"Juliet Prowse",
+"Cy Coleman & Dorothy Fields"
+],
+[
+"Taboo",
+2002,
+"The Venue",
+"Euan Morton & Luke Evans",
+"Boy George"
+],
+[
+"They're Playing Our Song",
+1980,
+"Shaftesbury Theatre",
+"Tom Conti & Gemma Craven",
+"Marvin Hamlisch & Carole Bayer Sager"
+],
+[
+"Thoroughly Modern Millie",
+2003,
+"Shaftesbury Theatre",
+"Amanda Holden & Maureen Lipman",
+"Jeanine Tesori & Dick Scanlan"
+],
+[
+"Time",
+1986,
+"Dominion Theatre",
+"Cliff Richard & Jodie Brooke Wilson",
+"Jeff Daniels, Dave Clark & David Soames"
+],
+[
+"Tommy",
+1996,
+"Shaftesbury Theatre",
+"Paul Keating & Kim Wilde",
+"Pete Townshend"
+],
+[
+"Top Hat",
+2012,
+"Aldwych Theatre",
+"Tom Chambers & Summer Strallen",
+"Irving Berlin"
+],
+[
+"Viva Forever!",
+2012,
+"Piccadilly Theatre",
+"Hannah John-Kamen & Sally Ann Triplett",
+"The Spice Girls"
+],
+[
+"Waitress",
+2019,
+"Adelphi Theatre",
+"Katharine McPhee & Jack McBrayer",
+"Sara Bareilles"
+],
+[
+"We Will Rock You",
+2002,
+"Dominion Theatre",
+"Tony Vincent & Hannah Jane Fox",
+"Queen"
+],
+[
+"West Side Story",
+1958,
+"Her Majesty's Theatre",
+"Don McKay & Marlys Watters",
+"Leonard Bernstein & Stephen Sondheim"
+],
+[
+"Where's Charley?",
+1958,
+"Palace Theatre",
+"Norman Wisdom",
+"Frank Loesser"
+],
+[
+"Wicked",
+2006,
+"Apollo Victoria Theatre",
+"Idina Menzel & Helen Dallimore",
+"Stephen Schwartz"
+],
+[
+"Windy City",
+1982,
+"Victoria Palace Theatre",
+"Dennis Waterman & Anton Rodgers",
+"Tony Macaulay & Dick Vosburgh"
+],
+[
+"The Witches of Eastwick",
+2000,
+"Theatre Royal Drury Lane",
+"Ian McShane & Maria Friedman",
+"Dana P. Rowe & John Dempsey"
+],
+[
+"The Woman in White",
+2004,
+"Palace Theatre",
+"Maria Friedman & Michael Crawford",
+"Andrew Lloyd Webber & David Zippel"
+],
+[
+"Wonderful Town",
+1955,
+"Prince's Theatre",
+"Pat Kirkwood & Shani Wallis",
+"Leonard Bernstein, Betty Comden & Adolph Green"
+],
+[
+"Young Frankenstein",
+2017,
+"Garrick Theatre",
+"Hadley Fraser & Ross Noble",
+"Mel Brooks"
+],
+[
+"Zorro",
+2008,
+"Garrick Theatre",
+"Matt Rawle & Emma Williams",
+"The Gipsy Kings, John Cameron & Stephen Clark"
+]
+];
+  var LIST = DATA.map(function (d, i) { return { id: i, title: d[0], year: String(d[1]), theatre: d[2], star: d[3], music: d[4], alts: d[5] || [] }; });
 
-    let currentShow = null;
-    let revealedCount = 1;
-    let streak = parseInt(localStorage.getItem('theatreBricksStreakWE')) || 0;
-    let bestStreak = parseInt(localStorage.getItem('theatreBricksBestWE_Final')) || 0;
-    let activeBricks = [];
-    let todayStr = new Date().toDateString();
+  function clue(title) {
+    return title.trim().split(/\s+/).map(function (w) {
+      return w.charAt(0) + w.slice(1).replace(/[\p{L}\p{N}]/gu, "_");
+    }).join("   ");
+  }
 
-    function getDailyIndex() {
-        const start = new Date("January 1, 2026");
-        const now = new Date();
-        const diff = Math.floor((now - start) / (1000 * 60 * 60 * 24));
-        return { index: diff % theatreData.length, dayNum: diff + 1 };
+  // Reveal order, bottom of the wall first.
+  var BRICKS = [
+    { label: "Opened",         get: function (f) { return f.year; } },
+    { label: "Theatre",        get: function (f) { return f.theatre; } },
+    { label: "Original star",  get: function (f) { return f.star; } },
+    { label: "Music & lyrics", get: function (f) { return f.music; } },
+    { label: "Title clue",     get: function (f) { return clue(f.title); }, clue: true }
+  ];
+  // Points for solving with N bricks revealed (index = N). Each wrong guess costs 5.
+  var POINTS = [100, 80, 60, 40, 20, 10];
+  var WRONG_COST = 5;
+  function score(revealed, wrongs) { return Math.max(0, POINTS[revealed] - WRONG_COST * wrongs); }
+
+  var $ = function (id) { return document.getElementById(id); };
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function norm(s) {
+    return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/&/g, " and ").replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim()
+      .replace(/^(the|a|an) /, "").replace(/ the musical$/, "");
+  }
+  function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function dateKey() { var d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} return null; }
+
+
+  // Daily order: a fixed shuffle of the whole list, so no musical repeats until every one has been played.
+  var ORDER = null;
+  function dailyOrder() {
+    if (ORDER) return ORDER;
+    var a = LIST.map(function (_, i) { return i; }), seed = 20261013;
+    function rnd() { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)), x = a[i]; a[i] = a[j]; a[j] = x; }
+    return (ORDER = a);
+  }
+  function dayNumber() { var d = new Date(); return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000); }
+  function isMatch(raw, f) {
+    var n = norm(raw); if (!n) return false;
+    return [f.title].concat(f.alts).some(function (t) { return norm(t) === n; });
+  }
+  var S = { mode: "daily", film: null, revealed: 0, wrongs: [], done: false, won: false, popIndex: -1, lastId: -1 };
+
+  function persistKey() { return "tb:" + dateKey(); }
+  function save() {
+    if (S.mode !== "daily" || !S.film) return;
+    store(persistKey(), JSON.stringify({ revealed: S.revealed, wrongs: S.wrongs, done: S.done, won: S.won }));
+  }
+
+  function loadShow() {
+    var pick;
+    if (S.mode === "daily") pick = LIST[dailyOrder()[dayNumber() % LIST.length]];
+    else { do { pick = LIST[Math.floor(Math.random() * LIST.length)]; } while (LIST.length > 1 && pick.id === S.lastId); }
+    S.lastId = pick.id;
+    S.film = pick; S.revealed = 0; S.wrongs = []; S.done = false; S.won = false; S.popIndex = -1;
+    $("msg").textContent = "";
+    if (S.mode === "daily") {
+      var saved = store(persistKey());
+      if (saved) { try { var p = JSON.parse(saved); S.revealed = p.revealed; S.wrongs = p.wrongs; S.done = p.done; S.won = p.won; } catch (e) {} }
     }
+    render();
+  }
 
-    function generateTitleClue(title) {
-        return title.split(' ').map(word => {
-            return word.split('').map((char, index) => {
-                if (index === 0) return char;
-                if (/[a-zA-Z]/.test(char)) return '_';
-                return char;
-            }).join('');
-        }).join('&nbsp;&nbsp;');
+  function render() {
+    var f = S.film; if (!f) return;
+    var words = f.title.trim().split(/\s+/).length;
+    $("wc").textContent = words;
+    $("wu").textContent = words === 1 ? "word" : "words";
+    $("date-line").textContent = S.mode === "daily"
+      ? "Musical of " + new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long" }) + " has"
+      : "This random musical has";
+
+    var wall = $("wall"); wall.textContent = "";
+    // Top to bottom: title brick, then the clues in reverse reveal order, so the wall builds from the bottom up.
+    var rows = [{ title: true }].concat(BRICKS.map(function (b, i) { return { b: b, i: i }; }).reverse());
+    rows.forEach(function (r, pos) {
+      var li = el("li"), node, open, label, value, isNext = false, isClue = false;
+      if (r.title) {
+        open = S.done; label = "Title";
+        value = open ? f.title : f.title.trim().split(/\s+/).map(function () { return "?"; }).join(" ");
+      } else {
+        open = r.i < S.revealed || S.done; isNext = !open && r.i === S.revealed;
+        label = r.b.label; value = open ? r.b.get(f) : "?"; isClue = !!r.b.clue && open;
+      }
+      var lab = el("span", "label", label);
+      if (isNext) {
+        node = el("button", "brick next"); node.type = "button";
+        node.appendChild(lab); node.appendChild(el("span", "go", "Reveal"));
+        node.setAttribute("aria-label", "Reveal brick: " + label);
+        node.addEventListener("click", reveal);
+      } else {
+        node = el("div", "brick" + (r.title ? " title" : "") + (open ? " open t" + (pos % 3 + 1) : " locked") + (open && (r.title ? S.done : r.i === S.popIndex) ? " pop" : ""));
+        node.appendChild(lab); node.appendChild(el("span", "value" + (isClue ? " clue" : ""), value));
+      }
+      li.appendChild(node); wall.appendChild(li);
+    });
+    S.popIndex = -1;
+
+    var worth = $("worth"); worth.textContent = "";
+    if (!S.done) {
+      worth.appendChild(document.createTextNode("Solve now: "));
+      worth.appendChild(el("b", null, score(S.revealed, S.wrongs.length) + " pts"));
     }
+    var wr = $("wrongs"); wr.textContent = "";
+    S.wrongs.forEach(function (w) { wr.appendChild(el("li", null, w)); });
+    $("guess-box").hidden = S.done;
+    renderResult();
+  }
 
-    function init() {
-        const daily = getDailyIndex();
-        currentShow = theatreData[daily.index];
-        dailyNum = daily.dayNum;
-        document.getElementById('dailyVol').innerText = `Show #${dailyNum}`;
-        
-        activeBricks = [
-            { "role": "West End Premiere", "name": currentShow.year },
-            ...currentShow.bricks,
-            { "role": "Title Clue", "name": generateTitleClue(currentShow.title), "isUnderscore": true },
-            { "role": "The Musical", "name": currentShow.title, "isFinal": true }
-        ];
-
-        document.getElementById('highScore').innerText = bestStreak;
-        document.getElementById('streak').innerText = streak;
-
-        // Check if already played today
-        if (localStorage.getItem('lastPlayedWE') === todayStr) {
-            revealedCount = parseInt(localStorage.getItem('lastRevealedWE')) || 6;
-            lockGame();
-        }
-
-        const wordCount = currentShow.title.split(' ').length;
-        document.getElementById('wordHint').innerText = `${wordCount} Word${wordCount > 1 ? 's' : ''}`;
-        renderBricks();
+  function renderResult() {
+    var box = $("result");
+    if (!S.done) { box.hidden = true; return; }
+    box.hidden = false; box.textContent = "";
+    var f = S.film, pts = S.won ? score(S.revealed, S.wrongs.length) : 0;
+    box.appendChild(el("p", "kicker", S.won ? "Solved" : "It was"));
+    box.appendChild(el("h2", null, f.title + " (" + f.year + ")"));
+    var sc = el("div", "score", String(pts)); sc.appendChild(el("small", null, S.won
+      ? "points · " + S.revealed + (S.revealed === 1 ? " brick" : " bricks") + (S.wrongs.length ? " · " + S.wrongs.length + " wrong" : "")
+      : "points")); box.appendChild(sc);
+    var row = el("div", "row");
+    if (S.won) {
+      var share = el("button", "btn", "Copy result"); share.type = "button";
+      share.addEventListener("click", function () { copyShare(share); }); row.appendChild(share);
     }
+    var again = el("button", "btn" + (S.won ? " ghost" : ""), S.mode === "daily" ? "Play a random musical" : "Next musical"); again.type = "button";
+    again.addEventListener("click", function () { setMode("random", true); }); row.appendChild(again);
+    box.appendChild(row);
+    if (S.mode === "daily") box.appendChild(el("p", "worth", "Come back tomorrow for a new daily musical."));
+  }
 
-    function renderBricks() {
-        const container = document.getElementById('bricksContainer');
-        container.innerHTML = '';
-        activeBricks.forEach((brick, index) => {
-            const isRevealed = index < revealedCount;
-            const div = document.createElement('div');
-            div.className = `brick ${isRevealed ? 'revealed' : ''} ${brick.isFinal ? 'title-reveal' : ''}`;
-            const valClass = brick.isUnderscore ? 'brick-value underscore-font' : 'brick-value';
-            div.innerHTML = `<div class="brick-label">${brick.role}</div><div class="${valClass}">${isRevealed?brick.name:'???'}</div>`;
-            container.appendChild(div);
-        });
-    }
+  function shareText() {
+    var d = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+    var grid = BRICKS.map(function (b, i) { return i < S.revealed ? "🟫" : "⬜"; }).reverse().join("");
+    return "Theatre Bricks" + (S.mode === "daily" ? " · " + d : "") + "\n" + grid + "\n" + S.revealed + " bricks · " + score(S.revealed, S.wrongs.length) + " pts";
+  }
+  function copyShare(btn) {
+    var t = shareText(), done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy result"; }, 1800); };
+    try { navigator.clipboard.writeText(t).then(done, function () { btn.textContent = "Copy not allowed here"; }); }
+    catch (e) { btn.textContent = "Copy not allowed here"; }
+  }
 
-    function skipClue() {
-        if (revealedCount < activeBricks.length - 1) {
-            revealedCount++;
-            renderBricks();
-        }
-    }
+  function reveal() {
+    if (S.done || S.revealed >= BRICKS.length) return;
+    S.popIndex = S.revealed; S.revealed++; save(); render();
+  }
+  function finishGame(won) {
+    S.done = true; S.won = won; save(); render();
+    var r = $("result"); if (r && r.scrollIntoView) r.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
 
-    function handleGuess() {
-        const input = document.getElementById('guessInput');
-        const guess = input.value.trim().toLowerCase().replace(/[^a-z0-9]/g, "");
-        const actual = currentShow.title.toLowerCase().replace(/[^a-z0-9]/g, "");
+  function submit(e) {
+    e.preventDefault();
+    if (S.done || !S.film) return;
+    var input = $("guess"), raw = input.value.trim();
+    if (!raw) return;
+    $("sugg").hidden = true;
+    if (isMatch(raw, S.film)) { input.value = ""; finishGame(true); return; }
+    if (S.wrongs.some(function (w) { return norm(w) === norm(raw); })) { $("msg").textContent = "You already tried that one."; return; }
+    S.wrongs.push(raw); input.value = ""; $("msg").textContent = "Not that one. −" + WRONG_COST + " points.";
+    save(); render(); input.focus();
+  }
 
-        if (guess === actual || (actual.includes(guess) && guess.length > 5)) {
-            streak++;
-            if (streak > bestStreak) {
-                bestStreak = streak;
-                localStorage.setItem('theatreBricksBestWE_Final', bestStreak);
-            }
-            localStorage.setItem('theatreBricksStreakWE', streak);
-            endGame("CURTAIN CALL! SUCCESS 🎭");
-        } else {
-            if (revealedCount < activeBricks.length - 1) {
-                revealedCount++; 
-                renderBricks();
-                document.getElementById('message').innerText = "Incorrect! Next brick revealed.";
-            } else {
-                streak = 0;
-                localStorage.setItem('theatreBricksStreakWE', 0);
-                endGame(`Show Closed! It was ${currentShow.title}`);
-            }
-        }
-        input.value = "";
-    }
+  function showSuggestions(items) {
+    var ul = $("sugg"); ul.textContent = "";
+    if (!items.length) { ul.hidden = true; return; }
+    items.forEach(function (it) {
+      var li = el("li"), b = el("button", null, it.title); b.type = "button";
+      b.addEventListener("click", function () { $("guess").value = it.title; ul.hidden = true; $("guess").focus(); });
+      li.appendChild(b); ul.appendChild(li);
+    });
+    ul.hidden = false;
+  }
+  function onType() {
+    $("msg").textContent = "";
+    var q = norm($("guess").value);
+    if (q.length < 2) { $("sugg").hidden = true; return; }
+    showSuggestions(LIST.filter(function (f) { return [f.title].concat(f.alts).some(function (t) { return norm(t).indexOf(q) !== -1; }); })
+      .sort(function (a, b) { return a.title.localeCompare(b.title); }).slice(0, 6));
+  }
 
-    function surrender() { 
-        streak = 0;
-        localStorage.setItem('theatreBricksStreakWE', 0);
-        endGame(`You gave up! It was ${currentShow.title}`); 
-    }
+  function setMode(m, force) {
+    if (m === S.mode && !force) return;
+    S.mode = m;
+    $("m-daily").setAttribute("aria-pressed", String(m === "daily"));
+    $("m-random").setAttribute("aria-pressed", String(m === "random"));
+    $("guess").value = ""; $("sugg").hidden = true;
+    loadShow();
+  }
 
-    function endGame(msg) {
-        localStorage.setItem('lastPlayedWE', todayStr);
-        localStorage.setItem('lastRevealedWE', revealedCount);
-        localStorage.setItem('lastResultWE', revealedCount);
-        document.getElementById('message').innerText = msg;
-        revealedCount = 6;
-        renderBricks();
-        lockGame();
-    }
+  $("form").addEventListener("submit", submit);
+  $("guess").addEventListener("input", onType);
+  $("giveup").addEventListener("click", function () { if (!S.done && S.film) { S.revealed = BRICKS.length; finishGame(false); } });
+  $("m-daily").addEventListener("click", function () { setMode("daily"); });
+  $("m-random").addEventListener("click", function () { if (S.mode === "random") loadShow(); else setMode("random"); });
+  document.addEventListener("click", function (e) { if (!e.target.closest(".field")) $("sugg").hidden = true; });
 
-    function lockGame() {
-        document.getElementById('guessInput').disabled = true;
-        document.getElementById('mainInputGroup').style.display = 'none';
-        document.getElementById('secondaryGroup').style.display = 'none';
-        document.getElementById('shareBtn').style.display = 'block';
-        startTimer();
-    }
-
-    function startTimer() {
-        const timerFn = () => {
-            const now = new Date();
-            const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-            const diff = tomorrow - now;
-            const h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
-            const msg = document.getElementById('message');
-            if(!msg.innerHTML.includes("NEXT SHOW")) {
-                msg.innerHTML += `<br><br>NEXT SHOW IN:<br><span id="timer">--:--:--</span>`;
-            }
-            document.getElementById('timer').innerText = `${h}h ${m}m ${s}s`;
-        };
-        timerFn();
-        setInterval(timerFn, 1000);
-    }
-
-    function copyShare() {
-        const result = parseInt(localStorage.getItem('lastResultWE'));
-        const win = result < 6;
-        let grid = "";
-        for(let i=1; i<=5; i++) grid += (i < result) ? "🧱" : (win ? "⬜" : "❌");
-        const text = `Theatre Bricks #${dailyNum}\n${grid}\nStreak: ${streak}\nhttps://brick-game.github.io/theatrebricks/`;
-        navigator.clipboard.writeText(text).then(() => alert("Copied to clipboard!"));
-    }
-
-    document.getElementById('guessInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') handleGuess(); });
-    window.onload = init;
+  loadShow();
+})();
 </script>
 </body>
 </html>
